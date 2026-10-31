@@ -8,13 +8,14 @@
 </head>
 <body>
 <div class="desktop" id="desktop">
-  <header class="topbar"><span>◆ &nbsp; 跃进新村 · 离线档案</span><span>试玩版 v0.1 &nbsp; / &nbsp; 2026.12.31</span></header>
-  <div class="desktop-icons" aria-hidden="true"><span>📁<small>我的档案</small></span><span>💬<small>聊天记录</small></span><span>🗂️<small>证据夹</small></span></div>
+  <header class="topbar"><span>◆ &nbsp; 跃进新村 · 离线档案</span><span>试玩版 v0.2 &nbsp; / &nbsp; 2026.12.31</span></header>
+  <nav class="desktop-icons" aria-label="桌面快捷方式"><button data-action="archive"><span aria-hidden="true">📁</span><small>我的档案</small></button><button data-action="chat"><span aria-hidden="true">💬</span><small>聊天记录</small></button><button data-action="evidence"><span aria-hidden="true">🗂️</span><small>证据夹</small></button></nav>
   <main class="app-window" aria-label="游戏主窗口">
-    <div class="window-bar"><span><i>✦</i> 消失在2008的7号楼 <em>— 本地备份</em></span><div class="window-actions" aria-hidden="true"><b>−</b><b>□</b><b>×</b></div></div>
+    <div class="window-bar"><span><i>✦</i> 消失在2008的7号楼 <em>— 本地备份</em></span><div class="window-actions"><button data-action="minimize" aria-label="最小化游戏窗口" title="最小化">−</button><button data-action="maximize" aria-label="放大游戏窗口" aria-pressed="false" title="放大或还原">□</button><button data-action="close-window" aria-label="关闭游戏窗口" title="关闭窗口">×</button></div></div>
     <div id="screen" tabindex="-1"></div>
   </main>
-  <footer class="taskbar"><span class="start-pill">✦ &nbsp; 开始</span><span class="task-item">▣ &nbsp; 跃进新村 · 离线档案</span><span class="clock">23:59</span></footer>
+  <div id="window-placeholder" class="window-placeholder" hidden><p>档案窗口已收起，调查进度已保存。</p><button data-action="restore" class="primary">重新打开档案</button></div>
+  <footer class="taskbar"><button class="start-pill" data-action="menu">✦ &nbsp; 开始</button><button class="task-item" data-action="restore">▣ &nbsp; 跃进新村 · 离线档案</button><span class="clock">23:59</span></footer>
 </div>
 <div id="dialog-root"></div>
 <script src="./game.js" defer></script>
