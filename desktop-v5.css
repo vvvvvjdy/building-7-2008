@@ -1,0 +1,154 @@
+/* A compact QQ 2008 buddy list sits on the same desktop as the later archive windows. */
+:root {
+  --shell-type: Tahoma, SimSun, "Songti SC", serif;
+  --reading-type: Tahoma, "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+.window-bar,.menubar,.toolbar,.addressbar,.taskbar,.desktop-icons,.statusbar {
+  font-family: var(--shell-type);
+}
+.desktop.roster-open {
+  padding-top:clamp(34px,10vh,115px);
+  background-image:linear-gradient(110deg,#071e3e1c,transparent 65%),url('assets/compound-evening.png');
+}
+.roster-open:not(.maximized) .app-window {
+  width:clamp(308px,22vw,385px);
+  margin:0 0 0 clamp(22px,6vw,130px);
+  border:1px solid #2872a7;
+  border-radius:8px 8px 4px 4px;
+  background:#c0e6ff;
+  box-shadow:0 9px 25px #07192f55,0 2px 3px #00152999;
+}
+.roster-open .app-window > .window-bar {
+  height:32px;
+  text-shadow:0 1px 1px #18426f;
+  background:linear-gradient(#adf2ff 0%,#54b9ef 8%,#2995d5 52%,#1b87ca 54%,#399fe0 100%);
+  border-top:1px solid #ebffff;
+  box-shadow:inset 1px 0 #bcefff,inset -1px 0 #77c1e9;
+}
+.roster-open .window-title {font:italic bold 15px Tahoma,"PingFang SC",sans-serif;letter-spacing:.3px;}
+.roster-open .window-actions button {height:21px;width:22px;}
+.roster-open.maximized {padding:0 0 38px;}
+.roster-open.maximized .qq-directory {min-height:calc(100dvh - 70px);}
+.qq-directory {
+  display:flex;flex-direction:column;position:relative;
+  height:clamp(438px,53vh,577px);padding:0 3px 3px;
+  background:linear-gradient(90deg,#83c8ed,#dcf3ff 1.5%,#b4dffa 98%,#79b7da);
+  color:#18384c;font:14px/1.45 var(--shell-type);
+}
+.qq-identity {
+  position:relative;isolation:isolate;overflow:hidden;
+  display:flex;align-items:center;gap:14px;min-height:112px;padding:12px 16px 17px;
+  background:radial-gradient(ellipse at 84% 7%,#e4faff 1%,transparent 34%),
+    linear-gradient(147deg,#3fa7e0 0%,#88d1f2 35%,#d0eeff 63%,#69bce7);
+  box-shadow:inset 0 1px #d2f4ff;
+}
+.qq-identity:before,.qq-identity:after {
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  width:135%;height:75%;border-radius:50%;transform:rotate(-13deg);
+}
+.qq-identity:before {left:7%;top:58%;border-top:3px solid #ffffffbb;box-shadow:0 -5px 0 #bcf1ff70,0 -15px 0 #e6fbff52;}
+.qq-identity:after {left:-35%;bottom:11%;border-bottom:1px solid #ffffff7a;}
+.qq-portrait {
+  flex:none;position:relative;display:grid;place-items:center;width:64px;height:67px;
+  border:3px solid #f3fcff;border-radius:6px;
+  background:radial-gradient(ellipse at 42% 83%,#def7ff 0%,#8cd9f5 48%,#429cce 84%);
+  box-shadow:0 0 0 1px #568fab,1px 2px 3px #35567688,inset 0 0 0 1px #609bbf;
+}
+.qq-portrait .icon {width:54px;height:54px;filter:drop-shadow(1px 1px 1px #0f3d5144);}
+.qq-account {min-width:0;color:#133651;text-shadow:0 1px #e6faff;}
+.qq-account strong {font:bold 20px var(--reading-type);}
+.qq-account small {display:block;font:12px var(--reading-type);color:#2e556b;margin:3px 0;}
+.qq-account p {margin:4px 0 0;font-size:14px;}
+.qq-identity .space-star,.qq-directory .qq-nav button,.qq-directory .qq-foot button,.qq-directory .dormant-contact {
+  border:1px solid transparent;border-radius:2px;background:transparent;box-shadow:none;
+}
+.qq-identity .space-star {
+  position:absolute;right:11px;top:9px;padding:2px 5px;color:#ffcc31;font:bold 21px Georgia,serif;
+  text-shadow:0 -1px #fff6c9,1px 1px #96601c,-1px 1px #b0752a;
+}
+.qq-nav,.qq-foot {display:flex;align-items:center;gap:2px;background:linear-gradient(#f4fcff,#c9e9fb 52%,#b6dbf3 53%,#d8effb);border-top:1px solid white;}
+.qq-nav {min-height:34px;border-bottom:1px solid #90b9d4;padding:0 7px;}
+.qq-nav b,.qq-nav button {font:13px var(--shell-type);padding:5px 8px;white-space:nowrap;}
+.qq-nav b {display:flex;align-items:center;gap:4px;background:#f7fcff;border:1px solid #90bad3;border-bottom:2px solid #e6ac33;border-radius:3px;}
+.qq-nav .icon {width:17px;height:17px;}
+.buddy-book {position:relative;isolation:isolate;flex:1;min-height:156px;overflow:auto;background:linear-gradient(100deg,#fff 40%,#f6fbfd);border:1px solid #8dbcd6;border-top:0;padding:6px 4px;}
+.buddy-group {position:relative;z-index:1;}
+.buddy-group summary {display:flex;align-items:center;gap:6px;cursor:pointer;color:#253e4f;min-height:30px;padding:3px 9px;list-style:none;user-select:none;}
+.buddy-group summary::-webkit-details-marker {display:none;}
+.buddy-group summary:before {content:"";width:0;height:0;border:4px solid transparent;border-left-color:#486477;margin:0 -3px 0 2px;}
+.buddy-group[open] summary:before {border-left-color:transparent;border-top-color:#486477;margin:5px 0 0 -1px;}
+.buddy-group summary small {color:#647785;font:12px Tahoma,sans-serif;}
+.buddy-group summary:hover {background:#eff7ff;}
+.summer-contact {
+  width:100%;display:flex;align-items:center;gap:11px;text-align:left;line-height:1.4;position:relative;
+  border:1px dotted #a4c4d8;border-radius:0;box-shadow:none;background:linear-gradient(90deg,#e7f4fe,#f5fbff);padding:7px 10px 7px 22px;
+}
+.summer-contact:hover:not(:disabled),.summer-contact:focus-visible {background:#d5edff;border:1px dotted #3d719a;box-shadow:none;}
+.gardenia-face,.lost-portrait {display:block;width:42px;height:42px;flex:none;border:2px solid white;box-shadow:0 0 0 1px #94a6ac;background:#a7b0a5 url('assets/gardenia-avatar.webp') center/cover;filter:grayscale(1);}
+.summer-contact strong {font:600 16px var(--reading-type);color:#283944;}
+.summer-contact em {font:normal 13px var(--shell-type);color:#475660;}
+.summer-contact small {display:block;font-size:13px;color:#536772;margin-top:3px;}
+.offline-dot {margin-left:auto;width:8px;height:8px;background:#a7afb5;box-shadow:inset 0 1px #fff;border:1px solid #919ba2;border-radius:50%;}
+.qq-directory .dormant-contact {width:100%;display:flex;align-items:center;gap:8px;text-align:left;padding:4px 10px 4px 25px;color:#65727c;}
+.dormant-contact i {font:20px Georgia;color:#899ca6;}
+.dormant-contact small {margin-left:auto;}
+.qq-watermark {position:absolute;z-index:-1;bottom:10px;right:16px;color:#dcebf1;font:italic bold 26px Georgia,serif;letter-spacing:-2px;user-select:none;}
+.qq-watermark sup {font:10px Tahoma,sans-serif;letter-spacing:1px;margin-left:3px;}
+.buddy-tip {display:none;position:absolute;left:25px;top:100%;z-index:3;align-items:center;gap:12px;padding:12px 20px 12px 12px;border:1px solid #819eae;background:linear-gradient(#fcffff,#e6f4fc);box-shadow:2px 3px 4px #39577533;pointer-events:none;}
+.buddy-group:has(.summer-contact:hover),.buddy-group:has(.summer-contact:focus-visible) {z-index:3;}
+.summer-contact:hover + .buddy-tip,.summer-contact:focus-visible + .buddy-tip {display:flex;animation:contact-card .8s both;}
+@keyframes contact-card {0%,78%{opacity:0}100%{opacity:1}}
+.buddy-tip small {display:block;line-height:1.6;margin-top:3px;color:#465d6c;}
+.qq-foot {padding:3px 5px;}
+.qq-foot button {display:flex;gap:3px;align-items:center;padding:4px 7px;font:13px var(--shell-type);}
+.qq-foot .icon {width:18px;height:18px;}
+.qq-directory .qq-nav button:hover,.qq-directory .qq-foot button:hover,.qq-directory .space-star:hover {background:#f3fbff;border-color:#82aec8;box-shadow:inset 0 0 0 1px #fff;}
+.offline-page {display:grid;place-items:center;min-height:clamp(330px,50vh,600px);padding:30px 15px;background:#f5f6f6;}
+.offline-document {width:min(100%,590px);border:1px solid #bcc4c7;background:white;}
+.offline-banner {font:bold italic 23px Georgia,serif;padding:14px 22px;border-bottom:1px solid #d4dbdd;color:#516573;background:linear-gradient(#fbfbfb,#e9eeee);}
+.offline-banner small {font:14px var(--shell-type);color:#566975;}
+.offline-content {padding:36px 24px;display:flex;gap:24px;align-items:flex-start;}
+.offline-content h1 {margin:5px 0 14px;font:normal 29px var(--reading-type);}
+.offline-content p {font:16px/1.8 var(--reading-type);color:#53616a;}
+.lost-portrait {width:62px;height:62px;opacity:.64;}
+.local-copy {display:inline-flex;align-items:center;gap:7px;}
+.local-copy .icon {width:22px;height:22px;}
+.plain-link {background:none;box-shadow:none;border:0;color:#315e91;text-decoration:underline;}
+.offline-document footer {border-top:1px dotted #cfd6d8;color:#687780;padding:9px 22px;font-size:12px;}
+.cache-explorer {display:grid;grid-template-columns:240px 1fr;min-height:clamp(370px,50vh,570px);background:white;}
+.cache-folder {padding:26px 22px;}
+.cache-folder header {display:flex;gap:16px;align-items:center;margin-bottom:26px;}
+.cache-folder header .icon {width:49px;height:49px;}
+.cache-folder h2 {font:normal 24px Tahoma,sans-serif;margin:3px 0 0;}
+.cache-columns,.cache-record {display:grid;grid-template-columns:minmax(0,1fr) minmax(110px,30%);align-items:center;text-align:left;}
+.cache-columns {font-size:13px;background:#eceadc;border:1px solid #c8c8b9;}
+.cache-columns span {padding:3px 8px;border-right:1px solid #c8c8b9;}
+.cache-record {grid-template-columns:34px minmax(0,1fr) minmax(110px,30%);width:100%;border:1px dotted #648ab4;border-radius:0;background:#edf5ff;padding:8px 5px;box-shadow:none;}
+.cache-record b,.cache-record small {display:block;}
+.cache-record .icon {width:27px;height:27px;}
+.cache-record small,.cache-record time {font-size:12px;color:#415874;}
+.cache-folder>p {margin-top:20px;color:#677882;}
+@media(max-width:780px){
+  .desktop.roster-open {padding:16px 10px 55px;background-position:62% center;}
+  .roster-open:not(.maximized) .app-window {margin:12px auto 0;width:min(100%,355px);}
+  .qq-directory {height:clamp(360px,60vh,490px);}
+  .cache-explorer {grid-template-columns:1fr;}
+  .cache-explorer>.explorer-side {display:none;}
+  .cache-folder {padding:20px 10px;}
+  .offline-content {gap:12px;padding:24px 12px;}
+  .lost-portrait {width:44px;height:44px;}
+}
+@media(max-height:650px) and (min-width:781px) {
+  .desktop.roster-open {padding-top:12px;}
+  .qq-directory {height:auto;min-height:360px;}
+  .qq-identity {min-height:88px;}
+}
+/* Water-blue trim echoes the translucent plastic edge of the buddy-list skin. */
+.buddy-book:before {
+  content:"";position:absolute;z-index:-2;inset:auto 0 0;height:48px;pointer-events:none;
+  background:
+    radial-gradient(110% 125% at 14% -45%,transparent 95%,#d9f0fa 96%,transparent 99%),
+    radial-gradient(120% 135% at 68% -52%,transparent 91%,#e0f2fa 93%,transparent 95%),
+    linear-gradient(transparent,#edf7fc);
+}
+.gardenia-face {filter:grayscale(1) contrast(1.32) brightness(.85);}

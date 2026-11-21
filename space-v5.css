@@ -1,0 +1,122 @@
+/* The handwriting belongs to Lin Xia; controls keep their system lettering. */
+.space-2008 {
+  --linen:#f4ebce;
+  --olive:#52623e;
+  color:#514938;
+  background-color:var(--linen);
+  background-image:repeating-linear-gradient(90deg,#fff5 0 1px,transparent 1px 5px);
+  padding:0 clamp(10px,2.3vw,34px);
+}
+.space-2008 .qzone-brand {color:#615f44;border-color:#cabc91}
+.space-2008 .qzone-brand>b {color:#677b45}
+.space-2008 .qzone-brand>span,.space-2008 .qzone-brand>button {color:#595e44}
+.space-2008 .qzone-banner {
+  display:flex;align-items:flex-start;justify-content:center;flex-direction:column;
+  height:clamp(145px,15vw,210px);padding:20px clamp(18px,4vw,62px);
+  border:1px solid #dbc994;border-bottom:0;background-position:center 55%;
+}
+.space-2008 .qzone-banner h2 {
+  font:500 clamp(26px,3vw,46px)/1.25 "Kaiti SC",KaiTi,STKaiti,"Songti SC",SimSun,serif;
+  letter-spacing:.12em;color:#585932;text-shadow:1px 1px #fff8df;margin:0;
+}
+.space-2008 .qzone-banner p {font:clamp(12px,1.2vw,16px)/1.8 "Songti SC",SimSun,serif;color:#696037;margin:7px 0 0;letter-spacing:.1em}
+.space-2008 .qzone-tabs {background:linear-gradient(#eeefd4,#d2d6af);border:1px solid #b7bb97;flex-wrap:wrap;margin-bottom:14px}
+.space-2008 .qzone-tabs button {font:14px Tahoma,SimSun,"Songti SC",serif;color:#4b5434}
+.space-2008 .qzone-tabs button.active {border-bottom-color:#637744}
+.space-2008 .qpanel {background:#fffcf2;border-color:#c7be96;box-shadow:1px 2px 1px #87754721}
+.space-2008 .qpanel>h3 {
+  color:#52603a;font:600 14px/1.35 Tahoma,SimSun,"Songti SC",serif;
+  background:linear-gradient(#faf6e0,#e5e5bf);border-bottom:1px solid #c6c29d;
+}
+.space-2008 .garden-avatar {
+  background:#ede6bc url('assets/gardenia-paper.png') 88% 58% / auto 230%;
+  color:transparent;text-shadow:none;transform:rotate(-3deg);
+}
+.space-2008 .diary-list {align-self:start}
+.space-2008 .qprofile>small,.space-2008 .qpanel dt,.space-2008 .diary>small,.space-2008 .diary>span {color:#6b694f}
+.space-2008 .qprofile>b {font-size:16px;color:var(--olive)}
+.space-2008 .qprofile>span,.space-2008 .qpanel dl {font-size:13px}
+.space-2008 .journal-label {display:flex;align-items:center;justify-content:space-between}
+.space-2008 .journal-label button {background:transparent;box-shadow:none;border:0;padding:2px;color:#586241;font-size:12px;text-decoration:underline}
+.space-2008 .diary h3 button {font-size:16px;color:#566c3a}
+.space-2008 .diary p,.space-2008 .guest-message p {font:15px/1.8 SimSun,"Songti SC",serif}
+.space-2008 .space-album-cover,.space-2008 .album-title+.winter-print {margin:15px 16px 20px}
+.space-2008 .album-open {width:100%;background:none;border:0;padding:0;box-shadow:none;text-align:inherit}
+.space-2008 .album-open:hover .winter-print,.space-2008 .album-open:focus-visible .winter-print {transform:rotate(0);border-color:#98a174}
+.winter-print {
+  margin:0;background:#fffef5;border:1px solid #d1c7a9;box-shadow:2px 4px 5px #65583333;
+  position:relative;padding:7px 7px 5px;transform:rotate(-.8deg);transition:transform .2s;
+}
+.winter-print::before,.winter-print::after {
+  content:"";position:absolute;z-index:1;width:43px;height:13px;top:1px;
+  background:#e9d8a6b8;box-shadow:0 1px 1px #73694c33;transform:rotate(-23deg);left:-6px;
+}
+.winter-print::after {left:auto;right:-6px;transform:rotate(24deg)}
+.winter-print img {display:block;width:100%;height:auto;max-height:300px;object-fit:cover;object-position:center 63%}
+.winter-print figcaption {display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 3px 2px;color:#56513c;font:15px/1.4 "Kaiti SC",KaiTi,STKaiti,serif}
+.winter-print time,.album-title small {font:12px Tahoma,SimSun,serif;color:#71664d}
+.album-title {display:flex;justify-content:space-between;margin:16px;color:#55623e}
+.space-2008 .visitor-sources button {position:relative;padding:9px 9px 9px 25px;border-bottom:1px dotted #d5d0b1;color:#485f43}
+.space-2008 .visitor-sources button::before {content:"";width:8px;height:8px;background:#9fac7b;border:1px solid #788553;position:absolute;top:13px;left:10px}
+.space-2008 .visitor-sources button:nth-child(2)::before {background:#b7a0b1;border-color:#8c788b}
+.space-2008 .visitor-sources button:nth-child(3)::before {background:#bcb9ab;border-color:#979387}
+.space-2008 .visitor-sources small {display:block;font-size:12px;color:#646750;margin-top:2px}
+.space-2008 .visitor-sources button:hover b {text-decoration:underline}
+.space-2008 .keepsake-area {
+  height:142px;background-color:#f7f1dd;background-image:linear-gradient(#d7cba666 1px,transparent 1px),linear-gradient(90deg,#d7cba666 1px,transparent 1px);
+  background-size:13px 13px;isolation:isolate;
+}
+.space-2008 .secret-note {color:#534d39;line-height:1.65;margin:15px auto;padding:17px 6px;width:85%;font-size:12px;background:#fff8d6;border:1px solid #e5d3a2;transform:rotate(-2deg);box-shadow:1px 2px 2px #5f4e2626}
+.space-2008 .secret-note b {font:600 19px/1.6 Georgia,serif;letter-spacing:2px;color:#544735}
+.space-2008 .secret-note small {font-size:11px;color:#77704e}
+.space-2008 .flower-sticker {inset:6px 8% 10px;background:#e7e9cd;border:2px solid #fbf6dc;border-radius:4px;box-shadow:1px 3px 4px #514e3066;display:grid;place-content:center;justify-items:center;width:84%;color:var(--olive);cursor:grab}
+.space-2008 .flower-sticker:active {cursor:grabbing}
+.space-2008 .flower-sticker.moved {transform:translateX(104%) rotate(18deg)}
+.space-2008 .pendant-picture {display:block;width:60px;height:62px;border:3px solid #faf3d3;outline:1px solid #b6ac79;border-radius:50%;background:#f0eac9 url('assets/gardenia-paper.png') 87% 55% / auto 250%;box-shadow:0 2px 3px #62674444;position:relative}
+.space-2008 .pendant-picture::before {content:"";position:absolute;top:-16px;left:50%;width:1px;height:13px;transform:rotate(-8deg);border-left:2px dotted #847e5a}
+.space-2008 .flower-sticker small {font-size:12px;color:#555739;margin-top:6px}
+.keepsake-link {padding:6px 8px 8px;text-align:center}
+.keepsake-link button,.space-2008 .lock-panel button {font-size:13px;color:#465635}
+.mini-deck {margin:10px;padding:7px;display:flex;gap:5px;align-items:stretch;background:linear-gradient(#f4f3e9,#c4c7bb 48%,#a3a599 51%,#deded0);border:1px solid #919680;border-radius:4px;box-shadow:inset 0 1px white,1px 1px 1px #7b7d6a55;font-family:Tahoma,SimSun,serif}
+.deck-lcd {flex:1;min-width:0;position:relative;color:#2c392b;background:linear-gradient(#a6b99b,#dce1c4);border:1px inset #babfa8;padding:4px 7px}
+.deck-lcd b,.deck-lcd small {display:block}.deck-lcd b {font-size:13px;margin-top:2px}.deck-lcd small {font:10px/1.15 monospace;letter-spacing:1px}
+.meter-lines {display:block;width:65%;height:4px;background:repeating-linear-gradient(90deg,#677e58 0 3px,transparent 3px 5px);margin-top:4px;opacity:.48}
+.playing .meter-lines {animation:meter-bounce .85s steps(5) infinite alternate}
+.deck-key {padding:3px 6px;border:1px outset #d7dac9;color:#4d5446;font-size:15px}
+.space-2008 .source-band {padding:5px 8px;color:#545a46;background:#e9ead7;border:1px solid #c5c8b1;font:12px/1.5 Tahoma,SimSun,serif}
+.restoring-space .qzone-banner,.restoring-space .qzone-tabs,.restoring-space .qzone-columns {animation:cache-paint .28s steps(4,end) backwards}
+.restoring-space .qzone-tabs {animation-delay:.14s}.restoring-space .qzone-columns {animation-delay:.34s}
+@keyframes cache-paint {from{opacity:0;clip-path:inset(0 0 100%)}to{opacity:1;clip-path:inset(0)}}
+@keyframes meter-bounce {from{width:35%}to{width:83%}}
+.chat-line .ndsl-memory {margin:.55em 0 .2em;max-width:350px}
+.ndsl-memory summary {width:fit-content;color:#345d85;font:13px/1.6 Tahoma,"Songti SC",SimSun,serif;text-decoration:underline;cursor:pointer}
+.ndsl-memory figure {border:1px solid #a8b7c1;margin:7px 0;padding:5px;background:#f6f7f8}
+.ndsl-memory img {display:block;width:100%;height:auto}.ndsl-memory figcaption {padding:4px 2px 0;font-size:12px;color:#4b6074}
+.chat-line p {font-size:15px}.chat-line time {color:#596f78}
+.forum-page .forum-banner {border-bottom:3px double #718996;background:linear-gradient(90deg,#eff4f5 15%,#edf3f6e8 45%,#bccbd738 78%),url('assets/snow-courtyard.webp') right 53% / cover}
+.forum-page .forum-banner>span {background:#edf2f4e3}
+.forum-table tbody tr:hover {background:#edf3f5}
+.thread-post>div>header {border-bottom:1px dotted #9aadb7}
+.thread-post>div>header::after {content:"1 楼";float:right;color:#4f6271}
+.forum-page .deleted-post {color:#4d606d;border:1px dashed #b6c5cb;background:#f0f3f4}
+@media(max-width:1100px){
+ .space-2008 .qzone-columns>aside:last-child .qpanel:nth-child(1),.space-2008 .qzone-columns>aside:last-child .qpanel:nth-child(2) {display:block;grid-column:auto}
+}
+@media(max-width:700px){
+ .space-2008 .space-album-cover {margin:12px}
+ .space-2008 .qzone-tabs {padding:0}
+ .space-2008 .qzone-tabs button {min-width:0;padding:8px;font-size:13px}
+ .space-2008 .qzone-columns {display:flex;flex-direction:column}
+ .space-2008 .qzone-columns>aside:first-child {display:block;order:3}
+ .space-2008 .qzone-columns>aside:first-child>.qpanel:not(.space-music) {display:none}
+ .space-2008 .qzone-columns>aside:last-child {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .space-2008 .qzone-columns>aside:last-child .lock-panel {grid-column:1/-1}
+ .space-2008 .diary-list {align-self:stretch}
+ .space-2008 .qzone-banner {height:130px}
+ .space-2008 .qzone-banner h2 {font-size:25px}
+ .space-2008 .qzone-banner p {max-width:66%;line-height:1.5}
+ .winter-print figcaption {font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ .restoring-space .qzone-banner,.restoring-space .qzone-tabs,.restoring-space .qzone-columns,.playing .meter-lines {animation:none}
+}

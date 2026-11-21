@@ -35,8 +35,8 @@ case 'back-ending':advance(10);break;
 case 'evidence':showModal('证据夹',state.evidence.length?`<p>已记录 ${state.evidence.length} / 8 条线索</p><div class="evidence-list">${state.evidence.map((e,i)=>`<div class="evidence"><b>${i+1}</b><span><strong>${safe(evidenceNames[e]||e)}</strong><br>${safe(evidenceDetails[e]||'')}</span></div>`).join('')}</div>`:'<p>还没有记录线索。从 QQ 中的林夏头像开始。</p>');break;
 case 'hint':case 'morehint':{const arr=hintTexts[state.stage]||['按页面中留下的线索继续。'];const key='hint'+state.stage;const level=Math.min((state.flags[key]||0)+1,arr.length);state.flags[key]=level;save();showModal('分级提示',arr.slice(0,level).map(h=>`<p>${h}</p>`).join('')+(level<arr.length?button('morehint','再看一条提示'):''));break;}
 case 'close':closeModal();break;
-case 'restart':showModal('重新开始','<p>重新开始 v0.4 调查？旧版 v0.3 存档不受影响。</p>'+button('confirm-restart','重新开始 v0.4'));break;
-case 'confirm-restart':state=defaultState();ui.entry='package';ui.qtab='home';ui.forumPost=null;ui.private=false;dialog.innerHTML='';save();render();break;
+case 'restart':showModal('重新开始','<p>重新开始调查并清空本次收集的线索？</p>'+button('confirm-restart','重新开始调查'));break;
+case 'confirm-restart':state=defaultState();ui.entry='qq';ui.qtab='home';ui.forumPost=null;ui.private=false;dialog.innerHTML='';save();render();break;
 }}
 document.addEventListener('click',e=>{const target=e.target.closest('[data-action]');if(target)act(target.dataset.action);});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dialog.innerHTML)closeModal();if(e.key==='Enter'&&e.target.id==='answer')act(e.target.dataset.submit||'search');});

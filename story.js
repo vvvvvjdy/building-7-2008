@@ -1,8 +1,8 @@
 'use strict';
 // The 2008 sources and the later archivist's interventions are visibly distinct.
 const ARCHIVE={recipient:'刘可阳',account:'阳阳得意',owner:'林夏',nickname:'半夏',snapshot:'2008-12-31 23:59',compiled:'2026-11-20',recorded:'2026-11-20',died:'2026-12-05',sent:'2026-12-29'};
-ui.entry=state.flags.booted?'qq':'package';
-const oldRetroAction=retroAction,oldQzone=qzoneScreen,oldQQ=qqScreen,oldForum=forumScreen,oldPhoto=photoScreen;
+ui.entry='qq';
+const oldRetroAction=retroAction,oldQQ=qqScreen,oldForum=forumScreen,oldPhoto=photoScreen;
 const sourceBand=(kind,text)=>`<div class="source-band ${kind}"><b>${kind==='original'?'原始档案':kind==='broken'?'缓存残缺':'后期整理附注'}</b><span>${text}</span></div>`;
 const navButton=(a,t)=>btn(a,t);
 const markRead=id=>{state.flags.read=state.flags.read||[];if(!state.flags.read.includes(id))state.flags.read.push(id);save();};
@@ -21,41 +21,138 @@ const documents={
  statement:{title:'刘父事后陈述副本',date:'2009.01.02',body:'“我知道还没清完。交接再拖，我家名额就没了。我没等通知，先去破坏了阀门，又点了火。我以为出点险情，人就肯走。后来压不住了。”陈述页有本人签名，附当晚值班员记录。',meaning:'记载行为及其自述；要与独立事故记录核对。'},
  report:{title:'事故调查节录',date:'2009.01.08',body:'调查将先前导致居民不适的危险排放，与当晚火灾分开记录。现场设施受人为破坏，引发可燃介质泄漏并遭明火引燃；在尚未完成清场的情况下，火势扩展失控。起火区域与门禁、值班员记录对应。林父在事故中遇难，林夏受伤生还。',meaning:'说明火灾机制与后果；异味本身不能证明是哪种物质。'}
 };
-function entryScreen(){
- if(ui.entry==='package')return `<section class="title-scene"><div class="title-copy"><div class="title-date">2026 年 12 月 31 日 · 刘可阳的电脑</div><h1>消失在2008<br>的<span>7</span>号楼</h1><p class="title-desc">一个没有署名的包裹。<br>一块标着「LINXIA_2008」的旧移动硬盘。</p><p>你是刘可阳，26 岁。十八年前的跨年夜，<br>七号楼的大火之后，你再没有见过林夏。</p><div class="package-files"><b>LINXIA_2008 (E:)</b><p>index.html　 blog/　 forum/　 chat.db　 imgs/</p><small>硬盘已经接入你自己的电脑。打开档案，回到保存下来的过去。</small></div><div class="title-buttons">${btn('boot','打开 index.html →','title-primary')}${state.maxStage?btn('resume','继续 v0.4 调查'):''}</div><small class="title-foot">互动叙事试玩版 0.4 · 进度自动保存<br>旧版存档保留，新版独立记录线索。</small></div><div class="photo-caption">一份迟到十八年的备份</div></section>`;
- if(ui.entry==='boot')return `<section class="boot-screen"><p>ARCHIVE MEMORY CHECK … OK</p><p>LOCAL USER SNAPSHOT … LIU KEYANG</p><p>LOADING WINDOWS XP DESKTOP …</p><hr><p>正在读取保存的 QQ 资料……</p><small>本地快照 · 无需输入或上传真实账号密码</small>${btn('boot-done','进入旧桌面')}</section>`;
- if(ui.entry==='closed')return `${browserTools('林夏的空间 / 访问状态')}<section class="access-page">${sourceBand('later','此状态由整理者在 2026 年补录，不属于 2008 年缓存。')}<div class="access-box"><span class="access-symbol">☆</span><h2>该空间已关闭</h2><p>林夏的账号已注销，在线内容无法访问。</p><p class="muted">这块硬盘仍保存着当年的网页。</p>${btn('cache-list','从本机缓存打开')}${btn('qq-home','返回 QQ')}</div></section>`;
- if(ui.entry==='cache')return `${browserTools('Temporary Internet Files')}<section class="cache-view">${sourceBand('broken','这里只列出已保存在硬盘中的文件，不会连接真实网站。')}<h2>Temporary Internet Files</h2><table class="record-table"><tr><th>文件</th><th>最后保存</th><th>状态</th></tr><tr><td>${btn('cache-open','linxia.qzone.qq.com / index.html')}</td><td>${ARCHIVE.snapshot}</td><td>页面可读，部分模块缺失</td></tr></table><p>双击过去不能让时间倒流。但你可以读到，她当时留下的字。</p>${btn('qq-home','返回 QQ')}</section>`;
- if(ui.entry==='own')return `${browserTools('阳阳得意 / 我的空间')}<section class="own-space">${sourceBand('original','当前用户：刘可阳。这里是他自己的空间快照。')}<small>阳阳得意</small><h2>跨年夜放烟花，我们院最牛！</h2><p>2008.12.30　明天放学要记得等她。</p><p>零钱盒里的钱快够买文具盒了。先不告诉她。</p><div class="qpanel"><h3>我的朋友</h3>${btn('linxia','✿ 林夏 · 半夏')}</div>${btn('qq-home','返回 QQ 面板')}</section>`;
- return `${menus()}<div class="qq-launch"><aside><div class="qq-self">${icon('qq')}<div><b>阳阳得意</b><p>刘可阳 · 2008 年旧号</p></div></div><p class="muted">本地用户快照 · 不是真实登录</p>${btn('own-space','☆ 我的空间（阳阳得意）','own-link')}<h3>▾ 朋友（1）</h3>${btn('linxia','✿ 林夏　半夏','friend-row')}<h3>▾ 他们（3）</h3>${['王浩 · 浩哥最拽','李静 · 静静de小情绪','赵磊 · 低调小磊'].map(x=>btn('offline',x,'friend-row muted')).join('')}</aside><section><small>2008 年的座位，仍为你留着。</small><h2>欢迎回家，刘可阳。</h2><p>林夏的头像还是灰色的。<br>「我不咬人。」——她最后留下的签名。</p>${btn('linxia','查看林夏的资料','primary')}<p class="muted">“朋友”分组里，只有她。</p>${sourceBand('later','欢迎语来自整理者写入硬盘的本地说明，不读取真实 IP，也不连接 QQ。')}</section></div>${statusbar('刘可阳的旧 QQ 快照')}`;
+function friendDirectory(){
+ const contacts = [['王浩','浩哥最拽'],['李静','静静de小情绪'],['赵磊','低调小磊']];
+ return `<section class="qq-directory" aria-label="刘可阳的 QQ 好友面板">
+  <header class="qq-identity">
+   <div class="qq-portrait">${icon('qq')}</div>
+   <div class="qq-account"><strong>阳阳得意</strong><small>刘可阳</small><p>明天放学要记得等她。</p></div>
+   ${btn('own-space','<span aria-hidden="true">★</span>','space-star','aria-label="我的空间（阳阳得意）" title="我的空间（阳阳得意）"')}
+  </header>
+  <div class="qq-nav"><b>${icon('qq')} 我的好友</b>${btn('chat','消息记录')}${btn('own-space','QQ空间')}</div>
+  <div class="buddy-book">
+   <details open class="buddy-group"><summary>朋友 <small>[1]</small></summary>
+    <button class="summer-contact" data-action="linxia" type="button">
+      <i class="gardenia-face" aria-hidden="true"></i><span><strong>半夏 <em>（林夏）</em></strong><small>我不咬人。</small></span><i class="offline-dot" aria-label="离线"></i>
+    </button>
+    <aside class="buddy-tip" aria-hidden="true"><span class="gardenia-face"></span><div><b>半夏</b><small>备注　林夏<br>状态　离线</small></div></aside>
+   </details>
+   <details class="buddy-group"><summary>他们 <small>[3]</small></summary>${contacts.map(([real,nick])=>btn('offline',`<i aria-hidden="true">♟</i> ${nick}<small>${real}</small>`,'dormant-contact')).join('')}</details>
+   <div class="qq-watermark" aria-hidden="true">QQ<sup>2008</sup></div>
+  </div>
+  <footer class="qq-foot">${btn('menu',icon('qq')+'菜单')}${btn('drive',icon('disk')+'旧硬盘')}${btn('notes',icon('notes')+'记事本')}</footer>
+ </section>`;
 }
-qzoneScreen=function(){let h=oldQzone().replaceAll('夏夏的小小星球','半夏的小小星球').replace('时侯','时候');h=h.replace('<div class="qzone-page">',`<div class="qzone-page">${sourceBand('original','林夏的空间 · 本机缓存 · 最后保存 '+ARCHIVE.snapshot)}`);h=h.replace(/<div class="qpanel"><h3>最近访客<\/h3>.*?<\/div><\/div>/,`<div class="qpanel"><h3>最近访客</h3><div class="visitor-sources">${btn('forum-entry','浩哥最拽 · 来自新村论坛：7号楼那个女孩')}${btn('forum-entry','静静de小情绪 · 来自同一主题')}${btn('forum-entry','匿名访客 · 来自：离她远点')}</div><small>同一天，他们都从论坛来到这里。</small></div>`);h=h.replace('博客归档','私人备份').replace('聊天记录需要密保验证。','聊天归档需要验证跨年约定。');h=h.replace('<h3>私密备份</h3>','<h3>离线聊天</h3>');h=h.replace('© 2008 夏夏', '© 2008 半夏');h=h.replace('<nav class="qzone-tabs"', '<nav class="qzone-tabs"');h=h.replace('</nav><div class="qzone-columns">',`</nav><div class="private-strip">${btn('private-open','▣ 私人备份')}${btn('qq-home','QQ 好友列表')}<span>${has('archive')?'已解锁：留言与网页收藏目录':'提示：我最喜欢的花'}</span></div><div class="qzone-columns">`);if(ui.qtab==='guestbook')h=h.replace('这是封存的留言板', '李静：你空间又是栀子花。<br><br>这是封存的留言板');return h;};
+function entryScreen(){
+ if(ui.entry==='closed')return `${browserTools('http://qzone.qq.com / 半夏')}<section class="offline-page"><div class="offline-document">
+  <div class="offline-banner">☆ Qzone <small>QQ空间</small></div><div class="offline-content"><div class="lost-portrait" aria-hidden="true"></div>
+  <div><small>半夏的个人空间</small><h1>该空间已关闭</h1><p>这个账号已经注销。<br>旧硬盘里，还留着一份她的主页。</p>
+  ${btn('cache-list',icon('folder')+'从本机缓存打开','local-copy')}${btn('qq-home','返回好友列表','plain-link')}</div></div>
+  <footer>状态由整理者于 2026 年补录</footer></div></section>${statusbar('已完成 · 页面已关闭')}`;
+ if(ui.entry==='cache')return `${browserTools('E:&#92;Temporary Internet Files')}<div class="cache-explorer">
+  <aside class="explorer-side">${taskPanel('文件和文件夹任务',btn('qq-home',icon('qq')+'返回好友列表'))}${taskPanel('详细信息','<b>Temporary Internet Files</b><p>Internet 临时文件<br>位于旧硬盘 (E:)</p>')}</aside>
+  <section class="cache-folder"><header>${icon('folder')}<div><small>Internet Explorer</small><h2>Temporary Internet Files</h2></div></header>
+  <div class="cache-columns"><span>名称</span><span>上次保存</span></div>
+  <button type="button" data-action="cache-open" class="cache-record">${icon('internet')}<span><b>index.html</b><small>半夏的小小星球 · 主页缓存</small></span><time>2008-12-31 23:59</time></button>
+  <p>页面可读，部分模块缺失。单击文件打开保存的页面。</p>
+  </section></div>${statusbar('1 个对象 · 本机缓存')}`;
+ if(ui.entry==='own')return `${browserTools('阳阳得意 / 我的空间')}<section class="own-space">${sourceBand('original','当前用户：刘可阳。这里是他自己的空间快照。')}<small>阳阳得意</small><h2>跨年夜放烟花，我们院最牛！</h2><p>2008.12.30　明天放学要记得等她。</p><p>零钱盒里的钱快够买文具盒了。先不告诉她。</p><div class="qpanel"><h3>我的朋友</h3>${btn('linxia','✿ 林夏 · 半夏')}</div>${btn('qq-home','返回 QQ 面板')}</section>`;
+ return friendDirectory();
+}
+function winterPrint() {
+ return `<figure class="winter-print"><img width="1152" height="648" src="assets/snow-courtyard.webp" alt="落雪的家属院，树下停着几辆自行车"><figcaption>放学一起走的那条路。<time>2008 年冬</time></figcaption></figure>`;
+}
+function spaceContents() {
+ switch (ui.qtab) {
+  case 'journal': return journal();
+  case 'album': return `<h4 class="album-title">旧时光 <small>1 张照片</small></h4>${winterPrint()}`;
+  case 'guestbook': return `<div class="guest-message"><b>刘可阳</b><time>2008-12-28 20:18</time><p>来踩踩！记得回踩~</p></div><div class="guest-message"><b>林夏</b><time>2008-12-29 19:46</time><p>明天见，记得一起回家。</p></div><div class="guest-message"><b>李静</b><time>2008-12-30 18:40</time><p>你空间又是栀子花。</p></div>`;
+  default: return `<div class="space-album-cover">${btn('qtab-album',winterPrint(),'album-open','aria-label="打开旧时光相册"')}</div><h3 class="journal-label">最新日志 ${btn('qtab-journal','全部日志')}</h3>${journal()}`;
+ }
+}
+function newYearKeepsake() {
+ return `<section class="qpanel keepsake"><h3>我的小挂件</h3><div class="keepsake-area">
+  <div class="secret-note" ${state.sticker?'':'aria-hidden="true"'}>约好看烟花的日子<b>08 · 12 · 31</b><small>年 / 月 / 日</small></div>
+  <button type="button" data-action="sticker" class="flower-sticker ${state.sticker?'moved':''}" aria-label="移开栀子花挂件，查看约定日期" aria-expanded="${state.sticker}">
+  <span class="pendant-picture" aria-hidden="true"></span><small>拉开花签</small></button></div>
+  <div class="keepsake-link">${btn('chat',has('chat')?'打开聊天记录':'验证跨年约定')}</div></section>`;
+}
+function spacePlayer() {
+ return `<section class="qpanel space-music"><h3>我的音乐盒</h3><div class="mini-deck ${ui.audio?'playing':''}">
+  <div class="deck-lcd"><small>${ui.audio?'PLAY':'STOP'} &nbsp; 01</small><b>窗边的小调</b><span class="meter-lines" aria-hidden="true"></span></div>
+  ${btn('music',ui.audio?'Ⅱ':'▶','deck-key',`aria-label="${ui.audio?'暂停':'播放'}窗边的小调" aria-pressed="${!!ui.audio}"`)}</div></section>`;
+}
+qzoneScreen=function(){
+ const title={home:'我的相册',album:'我的相册',journal:'我的日志',guestbook:'留下你的脚印'}[ui.qtab]||'我的相册';
+ const tabs=[['home','主页'],['journal','日志'],['album','相册'],['guestbook','留言板']];
+ return `${browserTools('E:\\archive\\qzone\\linxia\\index.html')}<div class="qzone-page space-2008 ${ui.restoringSpace?'restoring-space':''}">
+  <header class="qzone-brand"><b>☆ Qzone <small>QQ空间</small></b><span>林夏的个人空间</span>${btn('qq-home','QQ 好友列表')}</header>
+  <div class="qzone-banner"><h2>半夏的小小星球</h2><p>栀子花开的时候，又是一个夏天。</p></div>
+  <nav class="qzone-tabs" aria-label="空间栏目">${tabs.map(([id,label])=>btn('qtab-'+id,label,ui.qtab===id?'active':'',ui.qtab===id?'aria-current="page"':'')).join('')}${btn('chat','聊天记录')}${btn('private-open','私人备份')}</nav>
+  <div class="qzone-columns"><aside>${profile().replace('夏夏的小小星球','半夏的小小星球')}${spacePlayer()}</aside>
+   <section class="qpanel diary-list"><h3>${title}</h3>${spaceContents()}</section>
+   <aside>${newYearKeepsake()}<section class="qpanel referral-panel"><h3>最近访客 <small>来访来源</small></h3><div class="visitor-sources">
+    ${[['浩哥最拽','7号楼那个女孩'],['静静de小情绪','同一主题'],['匿名访客','离她远点']].map(([name,thread])=>btn('forum-entry',`<b>${name}</b><small>新村论坛 › ${thread}</small>`)).join('')}</div></section>
+    <section class="qpanel lock-panel"><h3>私人备份</h3><p>${has('archive')?'留言与网页收藏目录':'提示：我最喜欢的花'}</p>${btn('private-open',has('archive')?'查看收藏目录':'输入口令')}</section></aside>
+  </div>${sourceBand('original','林夏的空间 · 本机缓存 · 最后保存 '+ARCHIVE.snapshot)}<footer class="qzone-footer">© 2008 半夏的小小星球</footer></div>${statusbar('已载入林夏的空间')}`;
+};
 qqScreen=function(){let h=oldQQ().replaceAll('GameBoy','你的 NDSL').replaceAll('夏夏的小小星球','半夏').replace('▾ 我的好友 (2/8)','▾ 朋友 (1)').replace(/<button data-action="contact-keyang">.*?<\/button>/,'').replace('▸ 同学 (0/6)','▸ 他们 (3)');h=h.replace('<div class="qq-history">','<div class="qq-history">');h=h.replace('消息管理器</b>','消息管理器</b>');h=h.replaceAll('data-action="blog">查看林夏的博客 →','data-action="space">返回空间查看访客').replaceAll('查看林夏的博客 →','查看林夏的私人备份 →').replaceAll('打开博客 ↗','私人备份').replaceAll('打开博客','私人备份').replace('她的博客里还留着一个旧链接。','空间的最近访客留下了论坛来源。');return sourceBand('original','刘可阳的聊天归档 · 对方：林夏（半夏） · 掌机属于林夏')+h+`<div class="route-footer">${btn('space','返回林夏的空间')}${btn('private-open','查看私人备份')}</div>`;};
 function privateArchive(){if(!has('archive')){showModal('私人备份 · 访问口令',`${sourceBand('original','林夏保存的私密资料，不是公共论坛的密码。')}<label for="answer">提示：我最喜欢的花</label><input id="answer" data-submit="private-unlock" autocomplete="off" placeholder="从头像、空间皮肤或留言中寻找"><div id="error" role="status"></div>${btn('private-unlock','打开私人备份','primary')}`);return;}showModal('林夏的私人备份',`${sourceBand('original','2008 年的留言与收藏目录')}<h3>给可阳的留言</h3><p>你是唯一愿意陪我一起回家的人。等栀子花开了，我们一起去看。</p><h3>保存的好友列表</h3><p>账号：半夏（林夏）<br>朋友（1）：阳阳得意 · 刘可阳<br>他们：其他院里的住户与同学</p><h3>网页收藏目录</h3><p>7号楼那个女孩 / 原帖已删<br>楼后面那股味道 / 本地快照可读<br>新村小学合影 / 原始扫描与发布版</p><small>收藏目录中的地址，可以和论坛搜索结果中的失效链接对应。</small>${btn('forum-entry','打开收藏中的论坛地址')}`);}
 forumScreen=function(){let h=oldForum();h=h.replace('<div class="forum-page">',`<div class="forum-page">${sourceBand('original','跃进新村论坛 · 公开版块 · 不需要私人口令')}`);if(ui.forumPost===1){h=h.replace(/<p>晚上走廊里总有声音。[\s\S]*?<\/p>/,`<p class="deleted-post">该帖已被管理员删除。标题仍保留在访客来源中。</p><p>原帖内容：${has('archive')?btn('read-bullying','查看本地快照'):'需要网页收藏目录中的本地索引。'}</p>`);}if(state.search&&ui.forumPost===null){h=h.replace(/<div class="attachment">[\s\S]*?<\/div><div class="forum-caution">/,`<div class="attachment"><div><b>异味主题的原链接已经失效</b><p>${has('archive')?'私人备份索引与此地址匹配。':'先返回林夏空间，寻找她保存的网页收藏目录。'}</p>${btn(has('archive')?'odor-snapshot':'private-open',has('archive')?'读取异味帖本地快照':'查找私人备份')}${has('odor')?`<p>快照附件：班级合影（原始扫描＋发布版）</p>${has('chat')?btn('to4','对照两版合影 →','primary'):btn('chat','先解锁聊天，核对异味线索')}`:''}</div></div><div class="forum-caution">`);}return h+`<div class="route-footer">${btn('space','返回林夏的空间')}${btn('private-open','私人备份与索引')}</div>`;};
-photoScreen=function(){return sourceBand('later','整理者将原始扫描与论坛发布版对齐，生成对照层；并非 JPG 文件自带可编辑图层。')+oldPhoto().replace('图片和传真查看器','合影对照').replaceAll('底层预览','原始扫描').replace('照片上有一块不自然的覆盖。','论坛发布版有一块不自然的覆盖。');};
-photoResult=function(){return state.photo<=30?`<div class="notice">原始扫描中站着林夏，发布版把她遮去了。这是人为删改，不能证明任何诅咒。</div>${btn('to5','记录对照结果，查看相关档案 →','primary')}`:'<div class="notice">降低发布版覆盖层的不透明度，与原始扫描比较。</div>';};
+photoScreen=function(){
+ return sourceBand('later','整理者已将相册扫描件与论坛附件对齐，可以叠印查看。')+oldPhoto();
+};
+photoResult=function(){
+ if(state.photo<=30){
+   return `<p class="comparison-finding">原始扫描里，林夏站在第一排中间。论坛发布版删去了她。</p>${btn('to5','记录对照结果','primary')}`;
+ }
+ return '<p class="comparison-instruction">向左拖动滑杆，留意第一排中间的空隙。</p>';
+};
 const inquirySets={5:{title:'气味从哪里来？',ids:['complaint','discharge','party'],needed:['complaint','discharge'],next:6,evidence:'hazard',question:'哪些记录能建立时间、地点上的对应？'},6:{title:'谁改写了诊断？',ids:['medical','instruction','payment','party'],needed:['medical','instruction','payment'],next:7,evidence:'clinic',question:'哪些材料共同支持“厂方参与修改诊断”的判断？'}};
 function inquiryScreen(){const d=inquirySets[state.stage],selected=state.flags['select'+state.stage]||[];return `${browserTools('本地档案 / '+d.title)}<div class="inquiry-layout"><aside><h3>原始材料</h3>${d.ids.map(id=>readCard(id,documents[id].title)).join('')}${btn('evidence','查看证据夹')}</aside><section>${sourceBand('original',state.stage===5?'居民与厂区记录':'卫生所与厂方往来材料')}<small>交叉核对 ${state.stage===5?'01':'02'}</small><h2>${d.title}</h2><p>${d.question}</p><p class="muted">先打开材料阅读，再勾选能够相互证明的原件。无关材料不应加入结论。</p><div class="evidence-options">${d.ids.map(id=>`<label><input type="checkbox" data-select="${state.stage}" value="${id}" ${selected.includes(id)?'checked':''}>${documents[id].title}<small>${wasRead(id)?'已阅读':'尚未阅读'}</small></label>`).join('')}</div><div id="error" role="status"></div>${btn('submit-inquiry','提交关联判断','primary')}<p class="muted">${state.stage===5?'气味是线索，不是物质鉴定结论。':'付款日期相近并不足够，还要找到修改要求和对应编号。'}</p></section></div>`;}
 function restoredScreen(){return `${browserTools('回收站')}<section class="recovery-view"><h2>被删除的文件</h2>${sourceBand('broken','这些文件来自后期汇集的档案目录，不只包含 2008 年网页。')}<table class="record-table"><tr><th>选择</th><th>名称</th><th>内容</th></tr>${[['db','archive.db','保卫科记录与后续调查材料'],['party','新年活动安排.txt','联欢节目单'],['photo','班级合影.jpg','已保存的图像副本']].map(([id,t,d])=>`<tr><td><input aria-label="选择 ${t}" type="radio" name="recover" value="${id}" ${state.flags.recover===id?'checked':''}></td><td>${t}</td><td>${d}</td></tr>`).join('')}</table><div id="error" role="status"></div>${btn('recover-file','恢复选中的文件','primary')}</section>`;}
 const chainRoles=[['利益动机','rule'],['已知风险','evacuation'],['到场位置','gate'],['具体行为','statement'],['事故后果','report']];
 function chainScreen(){return `${browserTools('archive.db / 已恢复')}<section class="chain-page">${sourceBand('later','后期汇集：2008 年记录＋2009 年调查副本。材料日期分别保留。')}<h2>事故当晚，发生了什么？</h2><p>门禁里出现了父亲的名字。但你还不能只凭一个名字下结论。</p><div class="chain-layout"><aside>${chainRoles.map(([,id])=>readCard(id,documents[id].title)).join('')}</aside><div><h3>把材料放回它能证明的位置</h3>${chainRoles.map(([label,id],i)=>`<label class="chain-slot"><span>${i+1}. ${label}</span><select aria-label="${label}" data-chain="${id}"><option value="">选择一份材料</option>${chainRoles.map(([,opt])=>`<option value="${opt}" ${state.flags.chain?.[id]===opt?'selected':''}>${documents[opt].title}</option>`).join('')}</select></label>`).join('')}<div id="error" role="status"></div>${btn('submit-chain','核对完整证据链','primary')}<p class="muted">同一份材料不能同时代替动机、行为和后果。每份原件都要先阅读。</p></div></div></section>`;}
 function endingScreen(){if(state.stage===9)return `<div class="blue-screen"><b>Windows</b><h2>ARCHIVE_INTEGRITY_ERROR</h2><p>原有的解释，已经无法覆盖记录。</p><p>五份材料指向同一段经过：<br>刘父为保住安置优先资格，在知道清场未完成时提前行动。<br>设施破坏与引燃造成火势失控，林父遇难，林夏受伤。</p><p class="blue-technical">RECOVERING FINAL MESSAGE …<br>本段为档案程序的预设转场</p>${btn('ending','读取最后的留言 →')}</div>`;
-const choice=state.stage===11;return `<section class="ending"><div class="ending-flower">✿</div><small>${choice?'最后的选择':'林夏的预录留言 · '+ARCHIVE.recorded}</small><h2>${choice?(state.choice==='public'?'让被掩盖的名字，<br>重新被听见。':'有些真相，<br>还在等待被说出。'):'刘可阳，<br>我不是来恨你的。'}</h2>${choice?`<p>${state.choice==='public'?'你选择整理原件、核对来源，把证据和林夏的名字一起带出沉默。':'你暂时没有公开。资料仍在，你也可以重新作出选择。'}</p><p>这一次，你已经读过他们各自留下的记录。</p>${btn('back-ending','回到选择')}${btn('evidence','回顾全部证据')}${btn('home','回到标题页')}`:`<p>我知道，你当年只是一个八岁的孩子。<br>也是唯一愿意顶住大人排挤，牵起我手的人。</p><p>大人们为了利益，造谣、隐瞒。<br>我花了几年整理这些，不是为了让你替父亲认罪。<br>我想让这些年的谎言结束，让我和爸爸的名字被好好说出来。</p><p>后来做档案整理时，我保存了活动室旧电脑上的用户资料。<br>这份档案里，我给你留了自己的座位。</p><p>欢迎语和你一路读到的回应，都是我提前写好的。<br>它们会随着你的阅读出现。不是我正在屏幕另一边打字。</p><p>现在，你愿意把这些记录带出去吗？</p><p class="ending-context">预录自白的文字转录。影片素材尚未接入。</p>${!state.flags.transfer?btn('transfer','查看随盘转交说明','primary'):`<div class="transfer-note"><b>随盘说明 · 档案室同事 · ${ARCHIVE.sent}</b><p>林夏在 2026 年 11 月 20 日把录好的留言与硬盘交给我，嘱托在跨年夜前寄给你。她于 12 月 5 日因事故后遗症病情恶化去世。这封说明是我整理包裹时补入的。</p><p>录制：${ARCHIVE.recorded}<br>去世：${ARCHIVE.died}<br>寄出：${ARCHIVE.sent}<br>送达：2026-12-31</p><small>所有互动均来自预先保存的记录与脚本。</small></div><div class="ending-actions">${btn('choose-public','整理证据，公开真相','primary')}${btn('choose-silent','暂时保持沉默')}</div>`}`}<small>选择只发生在故事中，不会向真实互联网发布内容。</small></section>`;}
-render=function(){const s=state.stage;const title=s===0?(ui.entry==='package'?'一份迟来的包裹':'刘可阳的旧 QQ'):stageTitles[s];document.querySelector('#desktop').classList.toggle('title-mode',s===0&&ui.entry==='package');document.querySelector('#desktop').classList.toggle('final-mode',s>=9);document.querySelector('#desktop').classList.toggle('corrupted',s===8);appWindow.dataset.stage=s;const views=[entryScreen,qzoneScreen,qqScreen,forumScreen,photoScreen,inquiryScreen,inquiryScreen,restoredScreen,chainScreen,endingScreen,endingScreen,endingScreen];screen.innerHTML=views[s]();document.querySelector('#window-title').innerHTML=icon(s===0||s===2?'qq':s===1||s===3?'internet':'file')+`<span>${title}</span>`;document.querySelector('#task-icon').innerHTML=icon('computer');document.querySelector('#task-label').textContent=title.split(' - ')[0];document.querySelector('.desktop-icons').innerHTML=[['qq-home','qq','QQ 2008'],['drive','computer','我的电脑'],['recycle','bin','回收站'],['space','internet','Internet Explorer']].map(([a,i,t])=>btn(a,icon(i)+`<span>${t}</span>`)).join('');document.title='消失在2008的7号楼 · '+title;document.body.classList.toggle('crt',!!state.flags.crt);save();};
+const choice=state.stage===11;return `<section class="ending"><div class="ending-flower">✿</div><small>${choice?'最后的选择':'林夏的预录留言 · '+ARCHIVE.recorded}</small><h2>${choice?(state.choice==='public'?'让被掩盖的名字，<br>重新被听见。':'有些真相，<br>还在等待被说出。'):'刘可阳，<br>我不是来恨你的。'}</h2>${choice?`<p>${state.choice==='public'?'你选择整理原件、核对来源，把证据和林夏的名字一起带出沉默。':'你暂时没有公开。资料仍在，你也可以重新作出选择。'}</p><p>这一次，你已经读过他们各自留下的记录。</p>${btn('back-ending','回到选择')}${btn('evidence','回顾全部证据')}${btn('home','回到旧桌面')}`:`<p>我知道，你当年只是一个八岁的孩子。<br>也是唯一愿意顶住大人排挤，牵起我手的人。</p><p>大人们为了利益，造谣、隐瞒。<br>我花了几年整理这些，不是为了让你替父亲认罪。<br>我想让这些年的谎言结束，让我和爸爸的名字被好好说出来。</p><p>后来做档案整理时，我保存了活动室旧电脑上的用户资料。<br>这份档案里，我给你留了自己的座位。</p><p>欢迎语和你一路读到的回应，都是我提前写好的。<br>它们会随着你的阅读出现。不是我正在屏幕另一边打字。</p><p>现在，你愿意把这些记录带出去吗？</p><p class="ending-context">预录自白的文字转录。影片素材尚未接入。</p>${!state.flags.transfer?btn('transfer','查看随盘转交说明','primary'):`<div class="transfer-note"><b>随盘说明 · 档案室同事 · ${ARCHIVE.sent}</b><p>林夏在 2026 年 11 月 20 日把录好的留言与硬盘交给我，嘱托在跨年夜前寄给你。她于 12 月 5 日因事故后遗症病情恶化去世。这封说明是我整理包裹时补入的。</p><p>录制：${ARCHIVE.recorded}<br>去世：${ARCHIVE.died}<br>寄出：${ARCHIVE.sent}<br>送达：2026-12-31</p><small>所有互动均来自预先保存的记录与脚本。</small></div><div class="ending-actions">${btn('choose-public','整理证据，公开真相','primary')}${btn('choose-silent','暂时保持沉默')}</div>`}`}<small>选择只发生在故事中，不会向真实互联网发布内容。</small></section>`;}
+render=function(){
+ const s=state.stage, roster=s===0&&ui.entry==='qq';
+ const entryTitles={qq:'腾讯QQ 2008',closed:'半夏的空间 - Microsoft Internet Explorer',cache:'Temporary Internet Files',own:'阳阳得意的空间 - Microsoft Internet Explorer'};
+ const title=s===0?entryTitles[ui.entry]:stageTitles[s];
+ const desktop=document.querySelector('#desktop');
+ if(desktop.classList.contains('roster-open')!==roster){
+  appWindow.style.removeProperty('left');
+  appWindow.style.removeProperty('top');
+  desktop.classList.remove('maximized');
+  const control=appWindow.querySelector('[data-action="maximize"]');
+  control.setAttribute('aria-pressed','false');
+  control.setAttribute('aria-label','放大游戏窗口');
+ }
+ desktop.classList.toggle('roster-open',roster);
+ desktop.classList.toggle('final-mode',s>=9);
+ desktop.classList.toggle('corrupted',s===8);
+ appWindow.dataset.stage=s;
+ const views=[entryScreen,qzoneScreen,qqScreen,forumScreen,photoScreen,inquiryScreen,inquiryScreen,restoredScreen,chainScreen,endingScreen,endingScreen,endingScreen];
+ screen.innerHTML=views[s]();
+ const symbol=roster||s===2?'qq':s===1||s===3||s===0&&ui.entry!=='cache'?'internet':s===0?'folder':s===4?'photo':'file';
+ document.querySelector('#window-title').innerHTML=icon(symbol)+`<span>${title}</span>`;
+ document.querySelector('#task-icon').innerHTML=icon(symbol);
+ document.querySelector('#task-label').textContent=title.split(' - ')[0];
+ document.querySelector('.desktop-icons').innerHTML=[['qq-home','qq','腾讯QQ'],['drive','computer','我的电脑'],['recycle','bin','回收站'],['space','internet','Internet Explorer']].map(([a,i,t])=>btn(a,icon(i)+`<span>${t}</span>`)).join('');
+ document.title='消失在2008的7号楼 · '+title;
+ document.body.classList.toggle('crt',!!state.flags.crt);
+ save();
+};
 retroAction=function(a){
  if(a.startsWith('read-')){const id=a.slice(5),d=documents[id];if(d){markRead(id);render();showModal(d.title,`${sourceBand('original',d.date)}<div class="archive-sheet"><small>原件转录 / 虚构故事档案</small><h2>${d.title}</h2><p>${safe(d.body)}</p><hr><p class="muted">${d.meaning}</p></div>`);return true;}}
  if(a.startsWith('visit-')){openWindow();if(!visit(Number(a.slice(6))))toast('这份资料还没有解锁。');return true;}
  switch(a){
- case 'home':openWindow();ui.entry='package';visit(0);return true;
- case 'start':case 'boot':openWindow();state.flags.booted=true;ui.entry='boot';visit(0);clearTimeout(ui.bootTimer);ui.bootTimer=setTimeout(()=>{if(state.stage===0&&ui.entry==='boot'){ui.entry='qq';render();}},1600);return true;
- case 'boot-done':case 'qq-home':openWindow();state.flags.booted=true;ui.entry='qq';visit(0);return true;
+ case 'home':case 'start':case 'boot':case 'boot-done':case 'qq-home':openWindow();ui.entry='qq';visit(0);return true;
  case 'resume':openWindow();if(!visit(state.maxStage)){ui.entry='qq';visit(0);}return true;
  case 'own-space':ui.entry='own';visit(0);return true;
- case 'linxia':showModal('林夏 · 半夏',`<h2>✿ 半夏</h2><p>备注：林夏<br>签名：我不咬人。<br>状态：离线</p>${btn('linxia-space','访问她的空间','primary')}`);return true;
- case 'linxia-space':openWindow();ui.entry='closed';visit(0);return true;
+ case 'linxia':case 'linxia-space':openWindow();ui.entry='closed';visit(0);return true;
  case 'cache-list':ui.entry='cache';visit(0);return true;
- case 'cache-open':state.flags.cache=true;openWindow();advance(1);return true;
+ case 'cache-open':ui.restoringSpace=!state.flags.cache;state.flags.cache=true;openWindow();advance(1);ui.restoringSpace=false;return true;
  case 'space':openWindow();if(state.flags.cache)visit(1);else{ui.entry='closed';visit(0);}return true;
  case 'offline':showModal('QQ 系统消息','<p>对方已离线，无法发送消息。</p><small>这里只保存了旧用户目录，不连接真实账号。</small>');return true;
  case 'drive':case 'folders':case 'archive':showModal('我的电脑',`<h3>LINXIA_2008 (E:)</h3><p>硬盘接在刘可阳 2026 年的电脑上。当前 XP 界面由档案程序模拟。</p><p>2008 年用户目录：刘可阳（阳阳得意）<br>网页缓存：林夏（半夏）与跃进新村论坛<br>后期汇集资料：单独保留原件日期</p>${btn('qq-home','打开旧 QQ 面板')}`);return true;
@@ -72,7 +169,7 @@ retroAction=function(a){
  case 'recover-file':if(state.flags.recover!=='db')error('这份文件不是保卫科记录数据库。查看文件内容列，再选择。');else{advance(8,'entry');retroAction('read-gate');}return true;
  case 'submit-chain':if(chainRoles.some(([,id])=>!wasRead(id)))error('还有原件没有阅读。先查看左侧每份材料。');else if(chainRoles.some(([,id])=>state.flags.chain?.[id]!==id))error('有材料被放到了它不能单独证明的位置。尤其注意：门禁只证明到场，安置承诺只证明利益。');else advance(9,'truth');return true;
  case 'transfer':state.flags.transfer=true;save();render();return true;
- case 'previous':for(let i=state.stage-1;i>=0;i--)if(canVisit(i)){visit(i);break;}return true;
+ case 'previous':if(state.stage===0){ui.entry=ui.entry==='cache'?'closed':'qq';render();return true;}for(let i=state.stage-1;i>=0;i--)if(canVisit(i)){visit(i);break;}return true;
  case 'next':for(let i=state.stage+1;i<=state.maxStage;i++)if(canVisit(i)){visit(i);break;}return true;
  case 'contact-linxia':retroAction('linxia');return true;
  case 'help':showModal('帮助和支持','<p>从刘可阳旧 QQ 中的林夏头像开始，经关闭页找到本机缓存。</p><p>空间挂件提供聊天约定日期。私人备份提示的是她喜欢的花。论坛公开可读，删帖快照需要私人索引。</p><p>后半段先阅读原件，再配对证据。所有答案可以从已经出现的材料中找到。顶部“提示”会逐级说明。</p><p>窗口可拖动和缩放。关闭窗口不会清除进度，任务栏可以重开。所有账号、消息与公开选择都只是故事中的模拟。</p>');return true;
