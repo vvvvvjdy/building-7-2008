@@ -15,3 +15,9 @@
   > Use case: illustration-story. Asset type: wide decorative header background for a Chinese child's personal Qzone blog circa 2008. Soft dreamy early-2000s web scrapbooking illustration, pale butter yellow and warm ivory ruled stationery, delicate white gardenia flowers and fresh pale green leaves clustered along the right edge, tiny cream stars and a few pink flower petals, faded watercolor clouds and a faint gingham fabric border at the bottom. Handmade innocent childhood keepsake feeling, subtly aged paper texture, lots of spacious pale cream blank area on the left for HTML title. 3:1 panoramic landscape. No letters, no text, no logos, no interface, no people, no watermark. Elegant detailed botanical illustration, not modern flat vector.
 
 桌面图标使用项目内 SVG 绘制，窗口、表格、按钮、日期和线索均为 HTML/CSS。Figma 草图仅用于布局参考，没有整张贴成不可操作的页面。
+
+## v0.5
+
+- `snow-courtyard.webp` 和 `linxia-ndsl.webp` 分别取自组内影片素材 S04-B 与 S05-3，作为冬日相册照片和聊天回忆插图。
+- `gardenia-avatar.webp` 取自现有栀子花信纸。
+- `class-photo-forum.webp` 是与原始扫描逐像素对齐的虚构论坛发布版，修补了前排中央的区域，用于合影关的叠印比对。
