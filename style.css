@@ -115,7 +115,7 @@ hr {
 .desktop {
   min-height:100dvh;
   padding:39px 40px 65px 113px;
-  background:linear-gradient(#12394c22,#0d293650),url('assets/compound-evening.png') center/cover fixed;
+  background:linear-gradient(#12394c22,#0d293650),url('assets/compound-evening.webp') center/cover fixed;
   position:relative;
 }
 .desktop-mark {
@@ -523,7 +523,7 @@ hr {
 }
 .title-scene {
   min-height:min(740px,calc(100dvh - 139px));
-  background:linear-gradient(90deg,#061b23e8 0%,#0b253b88 44%,#0c223112 75%),url('assets/compound-evening.png') center/cover;
+  background:linear-gradient(90deg,#061b23e8 0%,#0b253b88 44%,#0c223112 75%),url('assets/compound-evening.webp') center/cover;
   color:#f3f0d8;
   display:flex;
   align-items:center;
@@ -870,7 +870,7 @@ hr {
 }
 .qzone-banner {
   height:170px;
-  background:url('assets/gardenia-paper.png') center/cover;
+  background:url('assets/gardenia-paper.webp') center/cover;
   position:relative;
   padding:32px 35px;
 }

@@ -29,7 +29,7 @@
   background:linear-gradient(#faf6e0,#e5e5bf);border-bottom:1px solid #c6c29d;
 }
 .space-2008 .garden-avatar {
-  background:#ede6bc url('assets/gardenia-paper.png') 88% 58% / auto 230%;
+  background:#ede6bc url('assets/gardenia-paper.webp') 88% 58% / auto 230%;
   color:transparent;text-shadow:none;transform:rotate(-3deg);
 }
 .space-2008 .diary-list {align-self:start}
@@ -72,7 +72,7 @@
 .space-2008 .flower-sticker {inset:6px 8% 10px;background:#e7e9cd;border:2px solid #fbf6dc;border-radius:4px;box-shadow:1px 3px 4px #514e3066;display:grid;place-content:center;justify-items:center;width:84%;color:var(--olive);cursor:grab}
 .space-2008 .flower-sticker:active {cursor:grabbing}
 .space-2008 .flower-sticker.moved {transform:translateX(104%) rotate(18deg)}
-.space-2008 .pendant-picture {display:block;width:60px;height:62px;border:3px solid #faf3d3;outline:1px solid #b6ac79;border-radius:50%;background:#f0eac9 url('assets/gardenia-paper.png') 87% 55% / auto 250%;box-shadow:0 2px 3px #62674444;position:relative}
+.space-2008 .pendant-picture {display:block;width:60px;height:62px;border:3px solid #faf3d3;outline:1px solid #b6ac79;border-radius:50%;background:#f0eac9 url('assets/gardenia-paper.webp') 87% 55% / auto 250%;box-shadow:0 2px 3px #62674444;position:relative}
 .space-2008 .pendant-picture::before {content:"";position:absolute;top:-16px;left:50%;width:1px;height:13px;transform:rotate(-8deg);border-left:2px dotted #847e5a}
 .space-2008 .flower-sticker small {font-size:12px;color:#555739;margin-top:6px}
 .keepsake-link {padding:6px 8px 8px;text-align:center}
