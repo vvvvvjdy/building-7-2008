@@ -63,6 +63,7 @@
     state.flags.driveOpened = true;
     save();
     drive.close();
+    retroAction('qq-home');
     restoreDesktop();
   }
 
