@@ -120,3 +120,96 @@
 @media(prefers-reduced-motion:reduce){
  .restoring-space .qzone-banner,.restoring-space .qzone-tabs,.restoring-space .qzone-columns,.playing .meter-lines {animation:none}
 }
+
+/* The two cached homepages use the team's original stationery and illustrations. */
+.space-2008 {
+  --space-ink:#573e39;
+  --space-border:#dbbeb7;
+  --space-heading:linear-gradient(100deg,#f6d5da,#fff0e9 62%,#f8dfdb);
+  color:var(--space-ink);background-color:#fbede7;
+  background-image:repeating-linear-gradient(0deg,#eecec629 0 1px,transparent 1px 4px);
+  padding:0 clamp(9px,1.7vw,25px) 7px;
+}
+.space-2008 .qzone-brand {color:var(--space-ink);background:#fff9f1}
+.space-2008 .qzone-brand>b {color:#265897}
+.space-2008 .qzone-tabs {background:linear-gradient(#fff4f3,#f4dbdf);border-color:var(--space-border)}
+.space-2008 .qzone-tabs button {border-color:#dfc6c2;color:#754a4e}
+.space-2008 .qzone-tabs button.active {background:#fff8f3;border-color:#ad757b}
+.space-2008 .qpanel {background:#fffaf2;border-color:var(--space-border);box-shadow:1px 2px 2px #79626721}
+.space-2008 .qpanel>h3,.space-2008 .journal-label {background:var(--space-heading);color:var(--space-ink);border-color:var(--space-border)}
+.space-2008 .team-letterhead {
+  position:relative;display:block;overflow:hidden;padding:0;border:0;
+  height:clamp(85px,8vw,152px);background-repeat:no-repeat;background-size:cover;background-position:center;
+}
+.space-2008 .team-letterhead h2 {
+  position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip-path:inset(50%);
+}
+.linxia-letterhead {background-image:url('assets/linxia-letterhead.webp')}
+.space-2008 .linxia-letterhead {background-image:url('assets/linxia-letterhead.webp')}
+.keyang-letterhead {background-image:url('assets/keyang-letterhead.webp')}
+.space-2008 .garden-avatar,.space-2008 .pendant-picture {
+  background:#f5eadd url('assets/linxia-flower.webp') center/cover;
+}
+.space-2008 .flower-sticker {background:#f8e1dc;border-color:#fff3e6}
+.space-2008 .keepsake-area {background-color:#f9ece5}
+.space-2008 .space-diary {border-bottom:1px dashed var(--space-border);margin:0 12px;padding:12px 0 8px}
+.space-2008 .diary-open {
+  display:flex;align-items:flex-start;gap:14px;padding:0;width:100%;text-align:left;color:var(--space-ink);white-space:normal;
+  background:none;border:0;box-shadow:none;
+}
+.diary-open img {width:clamp(70px,9vw,130px);aspect-ratio:1.5;object-fit:cover;border:1px solid #b5a593}
+.diary-open span {min-width:0;flex:1}
+.diary-open strong {display:block;font:600 18px/1.45 SimSun,"Songti SC",serif;color:#25488c;text-decoration:underline;text-underline-offset:2px}
+.diary-open:hover strong,.diary-open:focus-visible strong {color:#893d4c}
+.diary-open small {display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:15px/1.5 SimSun,"Songti SC",serif;color:#423e39;margin-top:4px}
+.space-diary time {display:block;text-align:right;color:#746e63;font:12px/1.6 Tahoma,serif;margin:3px 0 0}
+.journal-sheet {padding:8px 8px 16px;background:#fffaf4;color:#423b3c}
+.journal-sheet small {font:13px Tahoma,"Songti SC",serif;color:#706465}
+.journal-sheet h2 {font:600 24px SimSun,"Songti SC",serif}
+.journal-sheet img {display:block;width:auto;max-width:100%;height:110px;border:4px solid white;box-shadow:1px 2px 5px #7d6e5d40;transform:rotate(-1deg)}
+.journal-sheet p {font:16px/2 SimSun,"Songti SC",serif;margin:.9em 0 0}
+.linxia-scribbles {height:70px;margin:2px 14px;background:url('assets/linxia-doodle.webp') right center/auto 90% no-repeat}
+.space-2008.keyang-space {--space-border:#acc5df;--space-ink:#234a79;--space-heading:linear-gradient(100deg,#cddff3,#f4f8fc 63%,#dce8fa);background:#dce9f7}
+.keyang-columns {display:grid;grid-template-columns:minmax(140px,.85fr) minmax(0,2.7fr) minmax(145px,.98fr);gap:14px;padding:14px 0 0}
+.keyang-columns .qpanel {background:#fffcf6}
+.keyang-profile {padding:12px 11px;color:#282f3e}
+.keyang-profile img {display:block;width:85px;height:85px;object-fit:cover;background:white;border:3px solid white;box-shadow:0 0 0 1px #9cb6cb;margin:0 0 10px}
+.keyang-profile p,.keyang-album figcaption {color:#46516a;font-size:14px;line-height:1.5;margin:4px 0}
+.keyang-album {margin:10px}
+.keyang-album img {width:100%;display:block}
+.keyang-friend {display:flex;align-items:center;gap:9px;padding:10px;border:0;box-shadow:none;background:none;text-decoration:underline;color:#294e8b}
+.keyang-friend img {width:49px;height:50px;object-fit:cover;border:1px solid #b8ae9e}
+.keyang-visits {font-size:13px;line-height:1.8;color:#4b6180;padding-left:30px}
+.keyang-messages p {padding:9px 12px!important;border-bottom:1px dotted var(--space-border);display:block;font:14px/1.7 SimSun,"Songti SC",serif}
+.keyang-messages time {font:12px Tahoma,serif;color:#617387;margin-left:10px;display:inline-block}
+.keyang-doodles {height:72px;background:#fffaf1 url('assets/keyang-margin.webp') center/auto 100% no-repeat}
+.qq-layout {border-right:clamp(22px,5vw,76px) solid transparent;border-image:url('assets/chat-stationery.webp') 0 100% 0 0 / 0 clamp(22px,5vw,76px) 0 0 round}
+.ndsl-memory figcaption small {display:block;color:#6a7c88;margin-top:3px}
+@media (max-width:800px) {
+ .keyang-columns {grid-template-columns:minmax(0,1fr) minmax(140px,.55fr);gap:8px}
+ .keyang-columns>div {grid-column:1/-1;grid-row:1}
+ .space-2008 .team-letterhead {height:76px}
+ .qq-layout {border:0}
+}
+@media (max-width:500px) {
+ .space-2008 .team-letterhead {height:58px}
+ .diary-open strong {font-size:16px}
+ .diary-open small {font-size:13px}
+ .space-2008 .diary-open {gap:9px}
+ .space-2008 .space-diary {margin:0 9px;padding:9px 0 5px}
+ .keyang-columns {grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+.app-window[data-stage="2"] .qq-tools {
+  position:relative;margin-top:0;padding-top:43px;height:auto;min-height:68px;
+}
+.app-window[data-stage="2"] .qq-tools::before {
+  content:"";position:absolute;top:0;left:0;right:0;height:34px;pointer-events:none;
+  background:#f7deb6 url('assets/chat-ribbon.webp') center 46% / cover no-repeat;
+  border-bottom:1px solid #c1ada6;
+}
+.qq-contacts .avatar,.chat-records .avatar,.qq-profile .garden-avatar {
+  color:transparent;text-shadow:none;background:#f5ece3 url('assets/linxia-flower.webp') center/cover;
+}
+.chat-records .avatar.blue,.qq-contacts .avatar.blue {
+  background:#ebf0fa url('assets/keyang-portrait.webp') center/cover;
+}

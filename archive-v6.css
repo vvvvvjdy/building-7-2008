@@ -1,0 +1,105 @@
+.archive-register,.archive-reader {
+  --file-ink:#263a50;
+  --file-rule:#abb9c5;
+  color:#202b35;
+  font-family:Tahoma,SimSun,"Songti SC",serif;
+}
+.archive-register {background:#e0e6eb;}
+.register-banner {
+  display:flex;align-items:center;gap:14px;min-height:72px;padding:9px 20px;
+  background:linear-gradient(105deg,#344d69,#6e869c 89%);color:white;
+  border-top:1px solid #aab9c8;border-bottom:3px double #f7f9fa;
+}
+.register-banner small {color:#e7edf1;font:12px Tahoma,SimSun,"Songti SC",serif;}
+.register-banner h2 {margin:4px 0 0;font:600 clamp(20px,2.1vw,29px)/1.2 SimSun,"Songti SC",serif;letter-spacing:.07em;}
+.register-banner button {margin-left:auto;color:#24374b;flex:none;}
+.register-banner.clinic-banner {background:linear-gradient(105deg,#dce2e7,#eef1f3 68%,#c7d7e2);color:#223d53;}
+.clinic-banner small {color:#425766;}
+.clinic-banner img {height:54px;width:110px;object-fit:cover;filter:contrast(.94);}
+.register-body {padding:clamp(10px,2vw,24px);}
+.register-title,.file-strip {
+  background:linear-gradient(100deg,#bdcddd,#e8edf2);
+  color:var(--file-ink);border:1px solid var(--file-rule);
+}
+.register-title {margin:0 0 10px;padding:7px 12px;font-size:16px;font-weight:600;}
+.archive-cards {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:stretch;}
+.archive-cards.three-files {grid-template-columns:repeat(3,minmax(0,1fr));}
+.archive-cards.five-files {grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;}
+button.archive-card {
+  min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:10px;
+  border:1px solid #a7b5c1;border-radius:0;padding:3px 8px 10px;background:#ecf0f2;color:#252d34;
+  box-shadow:inset 1px 1px white;text-align:left;
+}
+button.archive-card:hover:not(:disabled),button.archive-card:focus-visible {
+  border-color:#477a9f;background:#e4edf4;box-shadow:inset 0 0 0 1px #fff;
+}
+.file-strip {
+  min-height:30px;display:flex;align-items:center;justify-content:space-between;gap:5px;padding:5px 8px;
+  margin:0 -5px;font-size:14px;line-height:1.35;
+}
+.file-strip small {flex:none;color:#415465;font:12px Tahoma,SimSun,"Songti SC",serif;}
+.record-facsimile {display:block;width:100%;height:auto;box-shadow:0 2px 3px #182e4928;}
+.record-form {
+  position:relative;display:flex;flex:1;flex-direction:column;justify-content:center;
+  width:100%;padding:clamp(12px,1.35vw,23px);min-height:185px;
+  background:#e8e5dc url("assets/archive-paper.webp") repeat;
+  box-shadow:inset 0 0 20px #877d6440,0 2px 3px #2e3b4533;border:1px solid #b7b5a9;
+  color:#37372f;font-family:SimSun,"Songti SC",serif;text-align:left;
+}
+.record-office {display:block;text-align:center;font-size:12px;color:#5e5e51;line-height:1.38;}
+.record-title {display:block;margin:7px 0 15px;text-align:center;font-weight:600;font-size:clamp(17px,1.6vw,24px);letter-spacing:.07em;}
+.record-fields {display:block;border:1px solid #96948b;}
+.record-fields>span {display:grid;grid-template-columns:minmax(45px,30%) 1fr;align-items:stretch;line-height:1.55;}
+.record-fields>span+span {border-top:1px solid #aaa79a;}
+.record-fields small,.record-fields b {
+  display:flex;align-items:center;padding:5px;font-size:13px;color:inherit;font-weight:400;overflow-wrap:anywhere;
+}
+.record-fields small {justify-content:center;border-right:1px solid #aaa79a;text-align:center;}
+.record-fields b.marked-entry {text-decoration:underline;text-decoration-color:#a84139;text-decoration-thickness:2px;text-underline-offset:3px;}
+.five-files .record-form {justify-content:flex-start;min-height:183px;padding:12px 7px;}
+.five-files .record-title {font-size:17px;}
+.five-files .file-strip {align-items:flex-start;flex-wrap:wrap;}
+.loose-attachment {padding:9px 0;color:#445765;font-size:13px;}
+.file-link,.file-link:hover:not(:disabled) {background:transparent;box-shadow:none;border:0;padding:2px;color:#264c84;text-decoration:underline;}
+.archive-choice {min-width:0;margin:12px 0 0;padding:12px;border:1px solid #a9b8c4;background:#f5f7f8;}
+.archive-choice legend {padding:0 6px;color:var(--file-ink);font-size:16px;font-weight:bold;}
+.archive-choice p {margin:0 0 6px;font-size:14px;line-height:1.6;color:#455667;}
+.archive-choice>div:not(.archive-slots) {display:flex;align-items:center;flex-wrap:wrap;gap:6px 18px;}
+.archive-choice label {margin:0;display:flex;align-items:center;gap:5px;color:#243a4b;font-size:14px;}
+.archive-choice input {width:16px;height:16px;flex:none;}
+.archive-slots {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;}
+.archive-slots label {align-items:stretch;flex-direction:column;font-weight:600;}
+.archive-slots select {width:100%;max-width:100%;background:white;padding:6px 3px;color:#293c4c;font-family:inherit;}
+.register-submit {display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-top:12px;}
+.register-submit #error {margin:0;min-height:0;font-size:14px;line-height:1.5;}
+.register-submit button {flex:none;}
+.modal:has(.archive-reader) {width:min(750px,100%);}
+.archive-reader {background:#edf0f2;border:1px solid #abb9c5;}
+.archive-reader>header {padding:7px 11px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#d8e3ee;font-size:14px;}
+.reader-desk {padding:16px;background:linear-gradient(105deg,#a3afba,#c7cfd4);}
+.reader-desk .record-form,.reader-desk .record-facsimile {max-width:575px;margin:auto;}
+.reader-desk .record-form {padding:24px 9%;min-height:240px;}
+.reader-desk .record-fields small,.reader-desk .record-fields b {font-size:16px;}
+.reader-transcript {padding:14px 18px;}
+.reader-transcript h3 {margin:0 0 5px;color:#314858;font-size:14px;}
+.reader-transcript p {font:16px/1.85 "Microsoft YaHei","PingFang SC",sans-serif;margin:0 0 14px;}
+.reader-transcript p:last-child {margin-bottom:0;}
+@media(max-width:1100px) {
+  .archive-cards.five-files {grid-template-columns:repeat(auto-fit,minmax(175px,1fr));}
+  .archive-slots {grid-template-columns:repeat(auto-fit,minmax(135px,1fr));}
+}
+@media(max-width:760px) {
+  .archive-cards.three-files,.archive-cards.five-files {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .clinic-banner img {width:68px;height:44px;}
+}
+@media(max-width:540px) {
+  .register-body {padding:10px;}
+  .register-banner {padding:10px;gap:8px;}
+  .archive-cards,.archive-cards.three-files,.archive-cards.five-files {grid-template-columns:1fr;}
+  .record-form,.five-files .record-form {min-height:0;flex:none;padding:14px;}
+  .archive-slots {grid-template-columns:1fr;}
+  .archive-slots label {flex-direction:row;align-items:center;gap:10px;}
+  .archive-slots select {flex:1;min-width:0;width:auto;}
+  .reader-desk,.reader-transcript {padding:10px;}
+  .reader-desk .record-form {padding:15px;min-height:0;}
+}
