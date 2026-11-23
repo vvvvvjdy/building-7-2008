@@ -213,3 +213,138 @@
 .chat-records .avatar.blue,.qq-contacts .avatar.blue {
   background:#ebf0fa url('assets/keyang-portrait.webp') center/cover;
 }
+
+.return-envelope {padding:10px 18px;background:#fffaf0;border:1px solid #c8be94}
+.return-envelope h2 {font:500 27px/1.6 SimSun,"Songti SC",serif;color:#48617b;margin:8px 0}
+.return-envelope small,.return-envelope p {color:#586878}
+.space-2008 .source-band.broken {background:#e5e5e3;color:#4e5355;border:1px solid #bfc3c2}
+.space-2008 .hero-keepsake {position:absolute;right:0;top:0;height:100%;padding:0;width:auto;min-width:65px;max-width:100px;aspect-ratio:1/1;border:0;background:none;box-shadow:none;touch-action:none;color:#53452f}
+.hero-keepsake img {display:block;width:100%;height:100%;object-fit:cover}
+.hero-keepsake small {position:absolute;bottom:2px;right:3px;padding:1px 4px;font:12px/1.3 SimSun,"Songti SC",serif;background:#fff5d4;box-shadow:0 0 0 1px #b1a47c}
+.period-links button,.saved-links button,.diary-forum-link {color:#244e89;border:0;background:transparent;box-shadow:none;text-decoration:underline}
+.saved-links button {display:block;margin:7px 0}
+.missing-module p {color:#827b73}
+.scheduled-message {display:flex;gap:12px;align-items:flex-start;padding:12px 18px;background:#fbf2e6;border-bottom:1px solid #d7c2a7;color:#4d4541;font:14px/1.6 Tahoma,"Songti SC",serif}
+.scheduled-message>img {width:38px;height:40px;object-fit:cover;border:2px solid white;outline:1px solid #d0bbae}
+.scheduled-message small {display:block;color:#776451;font-size:12px}
+.scheduled-message b,.scheduled-message p {display:inline-block;margin:0 8px 0 0}
+.scheduled-message .reply-line,.scheduled-message .auto-line {display:block;margin:7px 0}
+.scheduled-message button {color:#5e4833;background:#fff8e9;border-color:#c6ab87;font-size:13px;padding:3px 10px}
+.saved-roster {width:260px;max-width:100%;border:1px solid #93b6d1;background:#eef7fc;font:13px/1.6 Tahoma,"Songti SC",serif}
+.saved-roster header {padding:3px 10px;background:linear-gradient(#c5ddef,#9dc6e3);color:#2c4e72}
+.snapshot-id {display:flex;gap:7px;align-items:center;padding:5px 10px}
+.snapshot-id img {width:32px;height:32px;border:1px solid #c2cdd3;object-fit:cover}
+.snapshot-id small {display:block;color:#68808e}
+.saved-roster summary {background:#deebf4;padding:2px 8px;cursor:pointer}
+.saved-roster details p {padding:2px 10px}
+.inverted-line {display:block;line-height:1.7;margin:2px 0}
+.ink-toggle {padding:1px 6px;margin-right:8px;color:#536e89;background:#f0f4f8;border:1px solid #c3d2df;font:12px Tahoma,SimSun,serif}
+.hidden-ink {color:transparent;background:#f2f4f6;user-select:text}
+.hidden-ink::selection,.hidden-ink.ink-on {color:#fff;background:#2d5287}
+.modal-backdrop:has(.backup-prompt) {background:transparent}
+.modal:has(.backup-prompt) {width:370px;border:2px solid #1555b9;border-radius:4px;background:#ece9d8;box-shadow:2px 4px 6px #30343955}
+.modal:has(.backup-prompt) .modal-body {padding:13px 18px}
+.modal:has(.backup-prompt) .window-bar {height:26px}
+.modal:has(.backup-prompt) .modal-body>div:last-child {display:none}
+.backup-prompt p,.backup-prompt label,.backup-prompt footer {display:flex;gap:10px;align-items:center;margin:0 0 10px;color:#222;font:15px/1.5 Tahoma,SimSun,"Songti SC",serif}
+.backup-prompt footer {margin:4px 0 0;justify-content:center}
+.backup-prompt p img {width:30px;height:30px}
+.backup-prompt label input#answer {margin:0;min-width:0;width:65%;padding:3px 6px}
+.backup-prompt footer button {min-width:72px;padding:3px 10px}
+.backup-prompt #error:empty {display:none}
+.forum-page {font-family:Tahoma,SimSun,"Songti SC",serif}
+.forum-page .forum-banner.period-bbs {position:relative;background:#52647b url('assets/bbs-skyline.webp') center/100% 100% no-repeat;height:clamp(44px,5vw,77px);border:1px solid #597089}
+.period-bbs h2 {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.forum-page .forum-nav {background:linear-gradient(#405770,#31485e)}
+.forum-page .forum-columns {display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,19%);gap:9px}
+.forum-page .forum-columns>aside {grid-column:2;grid-row:1;background:#dce5ec;padding:6px;border:1px solid #b4c0cf}
+.forum-page .forum-columns>section {grid-column:1;grid-row:1}
+.forum-page .forum-columns>aside h3,.forum-page .forum-list-title,.forum-page .thread-heading {background:linear-gradient(#e7edf5,#c2d0e0);color:#29445f;border:1px solid #a6b7c9}
+.forum-page .forum-table {background:#edf1f9}
+.forum-page .forum-table td {padding:6px 7px;border-color:#bcc8d6}
+.forum-page .forum-table td button {color:#204d8d;text-decoration:underline}
+.forum-page .source-band {padding:4px 10px;font:12px/1.5 Tahoma,SimSun,serif}
+.forum-page .bbs-floor {display:grid;grid-template-columns:minmax(70px,115px) minmax(0,1fr);background:#edf2f9;border:1px solid #adbdd0;margin:6px 0}
+.bbs-floor aside {padding:8px;background:#e0e8f3;border-right:1px solid #bdc9d8;font-size:13px;color:#2c4b70}
+.bbs-floor aside img,.bbs-floor aside small {display:block}
+.bbs-floor aside img {width:32px;height:32px;margin:6px 0;object-fit:cover}
+.bbs-floor>div {padding:8px 12px}
+.bbs-floor header {color:#697a8c;font:12px Tahoma,SimSun,serif;border-bottom:1px dotted #bbc7d8}
+.bbs-floor header span {float:right}.bbs-floor p {font:15px/1.8 SimSun,"Songti SC",serif;color:#344251}
+.removed-notice,.snapshot-result {margin:18px 0;padding:15px;border:1px solid #aab9cd;background:#e8eff8}
+.removed-notice {max-width:450px;margin:45px auto;text-align:center}
+.removed-notice>img {width:30px;height:30px;vertical-align:middle;margin-right:8px}
+.snapshot-result button,.removed-notice button {color:#27518c;text-decoration:underline;background:transparent;border:0;box-shadow:none;font-weight:normal}
+.file-attachment {margin:8px 0 0;border-top:1px dotted #a7b9c8;padding:5px}.file-attachment small {display:block}
+.bbs-arriving {position:relative;animation:forum-cools 1.8s ease-out both}
+.bbs-arriving::before {content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:#386eaa;transform-origin:left;animation:bbs-progress 1.8s ease-out both;pointer-events:none}
+@keyframes forum-cools {0%{filter:sepia(.85) saturate(1.35)}100%{filter:none}}
+@keyframes bbs-progress {0%{transform:scaleX(.05);opacity:1}85%{transform:scaleX(1);opacity:1}100%{opacity:0}}
+@media(max-width:700px){
+ .forum-page .forum-columns {display:flex;flex-direction:column}
+ .forum-page .forum-columns>section {order:0}
+ .forum-page .forum-columns>aside {display:block;order:1}
+ .forum-page .forum-columns>aside button {display:inline}
+ .forum-page .forum-columns>aside h3 {margin:4px 0}
+}
+@media(prefers-reduced-motion:reduce){.bbs-arriving,.bbs-arriving::before {animation:none}.bbs-arriving::before {display:none}}
+.paper-chat {
+ position:relative;isolation:isolate;background-color:#f4dab0;
+ background-image:repeating-linear-gradient(45deg,#fff2dc66 0 5px,transparent 5px 12px),repeating-linear-gradient(-45deg,#e3b7ad55 0 3px,transparent 3px 12px);
+ padding-bottom:18px;font:15px Tahoma,SimSun,"Songti SC",serif;color:#203653;
+}
+.paper-chat::before {content:"";position:absolute;top:56px;bottom:0;right:0;width:15%;z-index:-1;background:url('assets/chat-stationery.webp') top right/100% auto repeat-y}
+.paper-chat::after {content:"";position:absolute;bottom:0;left:0;right:0;height:13px;background:url('assets/chat-bottom-trim.webp') center/auto 100% repeat-x}
+.paper-mast {min-height:67px;display:flex;align-items:center;padding:8px 3%;background:#fae6c8 url('assets/chat-ribbon.webp') top right/76% 100% no-repeat;border-bottom:3px double #fff4d8}
+.paper-mast b {font:600 clamp(19px,2.4vw,34px) Georgia,SimSun,serif;color:#76542d;text-shadow:0 1px #fff3df}
+.paper-mast small {font:600 15px Tahoma,SimSun,serif}
+.paper-layout {display:grid;grid-template-columns:minmax(96px,15%) minmax(0,1fr);gap:1.6%;padding:11px 14% 0 2%;align-items:start}
+.paper-navigation {padding-top:12px}.paper-navigation img {width:100%;display:block}
+.paper-navigation nav {border:2px double #eacf98;background:#fff5d8;padding:5px}
+.paper-navigation button {display:block;text-align:left;background:none;border:0;box-shadow:none;border-bottom:1px dotted #c8ad7f;width:100%;padding:7px;color:#6a5032}
+.paper-window {background:#e7f0fb;border:3px solid #8bbee4;border-radius:9px;box-shadow:0 0 0 2px #fff9e9,2px 3px 5px #5f482b77;overflow:hidden}
+.paper-caption,.paper-subhead,.paper-foot {display:flex;align-items:center;justify-content:space-between;gap:8px}
+.paper-caption {background:linear-gradient(#629bff,#1c6ed7 15%,#2678e0 55%,#175cb8);color:white;padding:3px 6px;font-weight:bold}
+.paper-caption span {display:flex;gap:6px;align-items:center}.paper-caption svg {width:24px;height:24px}
+.paper-caption .paper-close {color:white;background:linear-gradient(#eb995e,#c84526);border:1px solid white;border-radius:3px;font:bold 20px/19px Arial;width:22px;height:22px;padding:0}
+.paper-subhead {padding:9px 12px;background:linear-gradient(#e7f4ff,#c6dff3);border-bottom:1px solid #a3c6e5}
+.paper-subhead small {margin-right:auto;color:#556779}
+.paper-subhead button {font-size:12px;padding:3px 8px}
+.paper-messages {display:grid;grid-template-columns:minmax(90px,20%) minmax(0,1fr);min-height:300px;background:#fff}
+.paper-messages>aside {background:linear-gradient(#e4effb,#d2e5f5);border-right:1px solid #9fbcd3;padding:8px 3px}
+.paper-messages>aside div {padding:5px 3px;font-size:12px;display:flex;align-items:center;gap:4px}
+.paper-messages>aside div:first-child {background:#b6daff;border:1px solid #8fb9dc}
+.paper-messages>aside svg {width:17px;height:17px}
+.chat-scroll {min-width:0;padding:2px 16px 12px}
+.chat-scroll .chat-day {font:13px Tahoma;color:#677677;padding:11px 0;border-bottom:1px solid #e2e8ef}
+.paper-message {padding:8px 0;border-bottom:1px dotted #dfdfdf}
+.paper-message header {display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.paper-message header b {font-size:14px;color:#245198}
+.paper-message header time {font:12px Tahoma;color:#68788a}
+.paper-message p {margin:4px 0 2px;font:16px/1.65 Tahoma,SimSun,"Songti SC",serif;color:#202d3a}
+.paper-message .hidden-ink {font-size:14px}
+.paper-foot {background:linear-gradient(#e6eefc,#c9deed);padding:7px 12px;color:#526879;border-top:1px solid #a7c5dd;font-size:13px}
+.paper-foot small {color:#75582c;background:#fff3cc;border:1px solid #cfb58d;padding:2px 7px}
+.paper-note {margin:10px 14% 0 18.5%}
+.paper-note .scheduled-message {background:#fcf7e5;border:1px solid #d4be94;padding:8px 12px}
+@media(max-width:800px){
+ .paper-layout {padding:9px 4%;display:block}
+ .paper-navigation {display:none}
+ .paper-note {margin:8px 4% 0}
+ .paper-messages {grid-template-columns:minmax(78px,15%) minmax(0,1fr)}
+}
+@media(max-width:520px){
+ .paper-layout {padding:7px 2%}
+ .paper-messages {grid-template-columns:1fr}
+ .paper-messages>aside {display:none}
+ .paper-subhead {padding:6px;font-size:13px}
+ .paper-mast {min-height:48px}
+ .chat-scroll {padding:0 10px 8px}
+ .paper-message p {font-size:15px}
+ .paper-note {margin:7px 2% 0}
+}
+@media (min-width:1200px) {
+ .modal:has(.backup-prompt) {width:clamp(370px,26vw,510px)}
+ .modal:has(.backup-prompt) .modal-body {padding:clamp(13px,1.3vw,24px)}
+ .paper-messages {min-height:clamp(365px,48vh,640px)}
+}

@@ -103,3 +103,42 @@ button.archive-card:hover:not(:disabled),button.archive-card:focus-visible {
   .reader-desk,.reader-transcript {padding:10px;}
   .reader-desk .record-form {padding:15px;min-height:0;}
 }
+
+.archive-sheet,.archive-sheet-image {display:block;min-width:0;width:100%;}
+.archive-sheet-image {position:relative;container-type:inline-size;}
+.archive-sheet .record-facsimile {display:block;width:100%;height:auto;}
+.clinic-entry {
+  position:absolute;inset:34% 3% 46% 28%;
+  display:flex;align-items:center;
+  color:#35342f;font:clamp(10px,4cqw,23px)/1.25 SimSun,"Songti SC",serif;
+}
+.sheet-caption {display:block;padding-top:7px;color:#43586b;font:13px/1.5 Tahoma,SimSun,"Songti SC",serif;}
+.reader-desk:has(.sheet-caption) .archive-sheet {max-width:340px;margin:auto;}
+.reader-desk .sheet-caption {color:#243748;}
+.reader-desk .archive-sheet {max-width:575px;margin:auto;}
+@media (min-width:900px) {
+  .archive-cards.five-files,.archive-slots {grid-template-columns:repeat(5,minmax(0,1fr));}
+}
+.meeting-fragment {
+  background:#f0ede3;border:1px solid #a6a39a;border-left:3px solid #907261;
+  margin:12px 0 0;color:#423e37;
+}
+.meeting-fragment summary {cursor:pointer;padding:7px 10px;font-size:14px;}
+.fragment-icon {font-family:Georgia,serif;color:#796151;}
+.fragment-paper {display:flex;gap:14px;align-items:center;padding:9px 13px;border-block:1px solid #d4cdbc;background:#fcf9ed;}
+.fragment-drawing {position:relative;flex:0 0 84px;}
+.fragment-drawing img {display:block;width:100%;filter:saturate(.7);}
+.fragment-drawing span {
+  position:absolute;right:-3px;bottom:0;background:#ece2cd;color:#893d38;
+  font:11px/1.3 "Courier New",monospace;
+}
+.fragment-lines p {font:16px/1.65 SimSun,"Songti SC",serif;margin:3px 0;}
+.fragment-lines small,.fragment-lines>span,.fragment-source {font-size:13px;color:#645a4e;}
+.fragment-source {margin:7px 10px;}
+@media (prefers-reduced-motion:no-preference) {
+  .meeting-fragment[open] .fragment-drawing span,.meeting-fragment[open] .fragment-lines p {
+    animation:recover-transcript .7s ease-out backwards;
+  }
+  .meeting-fragment[open] .fragment-lines p:nth-of-type(2) {animation-delay:.45s;}
+  @keyframes recover-transcript {from{opacity:0;transform:translateY(2px)}to{opacity:1;transform:translateY(0)}}
+}

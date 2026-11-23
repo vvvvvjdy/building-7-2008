@@ -1,0 +1,138 @@
+.restore-files {background:#e3e5e2;color:#20292d;font:14px Tahoma,SimSun,"Songti SC",serif;}
+.restore-workspace {display:grid;grid-template-columns:minmax(120px,18%) 1fr;min-height:350px;border-bottom:1px solid #acb4b8;}
+.restore-workspace>aside {display:flex;flex-direction:column;align-items:flex-start;gap:10px;background:linear-gradient(120deg,#c2d1da,#dee5eb);border-right:1px solid #a4b1bb;padding:24px 15px;}
+.restore-workspace>aside span {font-size:12px;}
+.restore-list {min-width:0;padding:15px;}
+.restore-list h3 {margin:0;padding:8px 12px;background:linear-gradient(90deg,#bdc9d4,#eaf0f4);color:#263846;font-size:15px;}
+.restore-list table {width:100%;border-collapse:collapse;margin:8px 0 15px;background:white;}
+.restore-list th,.restore-list td {border:1px solid #bac0c1;padding:8px 6px;text-align:left;overflow-wrap:anywhere;}
+.restore-list th {background:#ecebe5;color:#334a59;font-weight:normal;}
+.restore-list td label {display:flex;align-items:center;gap:5px;cursor:pointer;}
+.restore-list table .icon {width:17px;height:17px;}
+.restore-list .restore-note {margin:15px 0;color:#40535f;font-size:14px;line-height:1.75;}
+.restore-list tr:has(:checked) {background:#e2edf9;}
+.case-attachments {display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 0;color:#4a5c68;font-size:13px;}
+.case-attachments button {display:flex;gap:5px;align-items:center;background:transparent;padding:2px;color:#1e497b;text-decoration:underline;box-shadow:none;border:0;}
+.case-attachments img {width:18px;height:23px;object-fit:cover;box-shadow:0 0 0 1px #9ca4a3;}
+.case-exhibit {margin:0;}
+.case-exhibit img {display:block;max-width:100%;width:310px;height:auto;margin:0 auto 12px;}
+.case-exhibit figcaption {font-size:15px;line-height:1.7;}
+.archive-stop {background:#00009c;color:white;padding:clamp(28px,6vw,76px);min-height:clamp(500px,70vh,800px);font:16px/1.75 "Courier New",SimSun,"Songti SC",monospace;}
+.archive-stop h2 {font:700 clamp(18px,2.4vw,31px)/1.55 "Courier New",monospace;overflow-wrap:anywhere;margin:0 0 28px;}
+.archive-stop p {margin:0 0 22px;color:white;}
+.archive-stop .stop-code {font-size:14px;}
+.archive-stop button {background:transparent;color:white;border:1px solid #d8d8ff;box-shadow:none;font:inherit;border-radius:0;padding:6px 12px;}
+.archive-stop button:hover,.archive-stop button:focus-visible {background:white;color:#000080;}
+.archive-stop small {display:block;margin-top:16px;color:#d2dcff;font-size:12px;}
+.last-record {background:white;color:#2f3031;min-height:clamp(520px,70vh,800px);padding:clamp(24px,5vw,66px) 16px;font-family:SimSun,"Songti SC",serif;}
+.last-message {max-width:600px;margin:0 auto;}
+.last-message>header {text-align:center;}
+.last-record small,.handover-letter small {color:#656565;font:12px/1.6 Tahoma,SimSun,"Songti SC",sans-serif;}
+.last-record h2 {margin:12px 0 27px;font:normal clamp(24px,3.3vw,41px)/1.5 SimSun,"Songti SC",serif;letter-spacing:.08em;color:#242424;}
+.message-transcript {padding:12px 0 9px;}
+.message-transcript p,.handover-letter p {font:16px/1.9 SimSun,"Songti SC",serif;margin:8px 0;color:#2e3234;}
+.message-transcript footer,.handover-letter footer {text-align:right;font-size:14px;color:#5b5b59;margin:20px 0 0;line-height:1.8;}
+.last-record button {background:white;color:#383a3b;border:1px solid #a8aaaa;border-radius:0;box-shadow:none;font:15px/1.65 SimSun,"Songti SC",serif;padding:7px 18px;}
+.last-record button:hover,.last-record button:focus-visible {background:#f0f0ed;border-color:#555a5c;color:#111;}
+.letter-open {margin-top:19px;text-align:center;border-top:1px solid #dededb;padding-top:17px;}
+.handover-letter {background:#faf9f4 url("assets/archive-paper.webp") repeat;padding:clamp(15px,4vw,30px);border:1px solid #aba99f;color:#282823;}
+.handover-letter h3 {margin:8px 0 20px;font:600 27px/1.4 SimSun,"Songti SC",serif;}
+.handover-dates {display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;padding:10px 0 0;margin:20px 0 0;border-top:1px solid #aaa99e;font:12px/1.5 Tahoma,SimSun,"Songti SC",sans-serif;}
+.handover-dates dt {color:#50524c;}
+.handover-dates dd {margin:0;}
+.last-decision {display:grid;place-items:center;text-align:center;}
+.decision-block {width:min(100%,605px);}
+.decision-block>p {max-width:400px;font-size:17px;line-height:1.9;margin:0 auto 20px;}
+.decision-choice,.decision-links {display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.decision-choice button {min-width:125px;}
+.decision-links {margin:34px 0 8px;}
+.decision-links button {padding:4px 6px;border:0;font-size:13px;text-decoration:underline;text-underline-offset:3px;color:#555;}
+@media (max-width:650px){
+ .restore-workspace {grid-template-columns:1fr;}
+ .restore-workspace>aside {display:none;}
+ .restore-list {padding:8px;}
+ .restore-list th,.restore-list td {padding:8px 4px;}
+ .restore-list th:nth-child(2),.restore-list td:nth-child(2) {display:none;}
+ .restore-list tr td:first-child {min-width:90px;}
+ .restore-list table .icon {display:none;}
+ .case-attachments {gap:7px;}
+ .archive-stop {font-size:15px;padding:30px 16px;}
+ .archive-stop .stop-code {font-size:13px;}
+ .decision-block>p {font-size:16px;}
+}
+#desktop.final-mode {display:block;min-height:100dvh;padding:0;background:white;}
+#desktop.final-mode:has([data-stage="9"]) {background:#00009c;}
+.final-mode:has(.app-window:not([hidden]))>.taskbar,.final-mode:has(.app-window:not([hidden]))>.desktop-icons,.final-mode>.desktop-mark,.final-mode .app-window>.window-bar {display:none;}
+#desktop.final-mode .app-window {position:relative;left:0!important;top:0!important;margin:0;width:100%;max-width:none;border:0;border-radius:0;box-shadow:none;}
+.final-mode .archive-stop,.final-mode .last-record {min-height:100dvh;}
+.archive-stop {padding:clamp(26px,4vh,56px) clamp(20px,3.5vw,75px);}
+.last-intro {display:grid;place-items:center;text-align:center;}
+.last-message {width:min(100%,480px);}
+.message-index {padding:16px 0 23px;}
+.message-index button {display:inline-flex;gap:10px;align-items:center;border-color:#d5d7d7;}
+.message-index button span {color:#5a646a;font:22px Georgia,serif;}
+.letter-open small {display:block;margin-top:8px;}
+.letter-open {padding-top:14px;margin:0;}
+.letter-open button {border:0;font-size:14px;text-decoration:underline;text-underline-offset:3px;}
+.restore-progress {display:flex;align-items:flex-start;gap:20px;}
+.restore-progress>.icon {font-size:32px;width:40px;height:40px;}
+.restore-progress>div {flex:1;}
+.restore-progress p {margin:4px 0;}
+.restore-progress progress {accent-color:#218e24;width:75%;height:18px;vertical-align:middle;}
+.restore-progress output {font:12px Tahoma,sans-serif;}
+.restore-list input[type="radio"] {appearance:auto;flex:none;display:inline-block;width:15px;min-width:0;height:15px;padding:0;margin:2px;}
+.restore-list td label {margin:0;}
+.restore-workspace>aside .icon {width:36px;height:36px;}
+/* Reuse the unobstructed edges of the team's XP desktop. The shell covers the middle. */
+#desktop:has(.app-window:is([data-stage="6"],[data-stage="7"]):not([hidden])) {
+ background-color:#3478d4;
+ background-image:url('assets/xp-field-left.webp'),url('assets/xp-field-right.webp'),url('assets/xp-field-foot.webp'),linear-gradient(#2d64c8,#82b3f9 62%,#658e28 63%,#426a19);
+ background-size:16% calc(100dvh - 32px),15% calc(100dvh - 32px),100% 19%,100% 100%;
+ background-position:left top,right top,center bottom,center;
+ background-attachment:fixed;background-repeat:no-repeat;
+}
+#desktop:has(.app-window:is([data-stage="6"],[data-stage="7"]))>.desktop-mark {display:none;}
+.restore-db-preview {display:none;}
+body:has(.restore-progress) .restore-picker {display:none;}
+body:has(.restore-progress) .restore-db-preview {display:block;}
+.preview-database {background:#e4e6e9;color:#20282c;font:15px Tahoma,SimSun,"Songti SC",serif;border:1px solid #b5bec6;}
+.preview-database h2 {background:linear-gradient(95deg,#75858e,#87949d);color:white;padding:9px 16px;margin:0;font:600 23px/1.4 SimSun,"Songti SC",serif;}
+.preview-database-layout {display:grid;grid-template-columns:15% 1fr;min-height:clamp(380px,64vh,710px);}
+.preview-database-layout aside {background:linear-gradient(110deg,#c2c5ce,#d5dadf);border-right:2px solid #f8f9fa;padding:14px 10px;display:grid;align-content:start;gap:16px;color:#334c8a;}
+.preview-database-layout aside strong {text-decoration:underline;}
+.preview-database-layout>div {padding:8px 12px 22px;min-width:0;}
+.preview-database h3 {background:#b4bec6;padding:7px 12px;margin:0 0 8px;font:600 18px/1.3 SimSun,"Songti SC",serif;}
+.preview-database table {width:100%;table-layout:fixed;border-collapse:collapse;background:#e9eaeb;}
+.preview-database caption {position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden;}
+.preview-database th,.preview-database td {border:1px solid #9ea9b3;text-align:center;overflow-wrap:anywhere;padding:3px;height:29px;}
+.preview-database th {background:#dadde0;color:#26323c;}
+.modal-backdrop:has(.restore-progress) {background:transparent;align-items:flex-end;padding-bottom:clamp(50px,13vh,175px);}
+.modal:has(.restore-progress) {width:min(498px,95vw);box-shadow:2px 3px 5px #1f314b65;}
+.modal:has(.restore-progress) .modal-body {padding:13px 20px 12px;}
+.modal:has(.restore-progress) .modal-body>div:last-child {margin-top:9px;}
+.modal:has(.restore-progress) .window-bar {height:28px;}
+.restore-progress {gap:14px;align-items:flex-start;}
+.restore-progress>.icon {margin-top:8px;}
+.restore-progress .progress-line {display:flex;align-items:center;margin:5px 0;gap:5px;}
+.restore-progress progress {width:auto;flex:1;min-width:0;}
+@media(min-width:850px){
+ #desktop:not(.maximized):has(.app-window[data-stage="7"]:not([hidden])) {padding:4px 9% 45px 12%;}
+ #desktop:not(.maximized):has(.app-window[data-stage="6"]:not([hidden])) {padding:4px 1.5% 43px 8%;}
+ #desktop:has(.app-window[data-stage="7"]) .restore-workspace {min-height:clamp(360px,56vh,700px);}
+}
+@media(max-width:600px){
+ .preview-database-layout {grid-template-columns:1fr;}
+ .preview-database-layout aside {display:none;}
+ .preview-database-layout>div {padding:7px;}
+ .preview-database th,.preview-database td {font-size:13px;}
+ .modal-backdrop:has(.restore-progress) {padding-bottom:15vh;}
+}
+body:has(.restore-progress) #window-title>span:last-child {display:none;}
+body:has(.restore-progress) #window-title::after {content:"本地数据库 - Microsoft Internet Explorer";}
+.restore-progress progress {appearance:none;border:1px solid #8c9d8b;background:#f4f6ed;border-radius:2px;height:15px;padding:1px;}
+.restore-progress progress::-webkit-progress-bar {background:#f4f6ed;}
+.restore-progress progress::-webkit-progress-value {background:repeating-linear-gradient(to right,#30a51b 0,#55bd35 7px,#fbfff5 7px,#fbfff5 9px);}
+.restore-progress progress::-moz-progress-bar {background:repeating-linear-gradient(to right,#30a51b 0,#55bd35 7px,#fbfff5 7px,#fbfff5 9px);}
+@media (min-width:1500px) {
+ #desktop:not(.maximized) .app-window:is([data-stage="6"],[data-stage="7"]) {max-width:none}
+}

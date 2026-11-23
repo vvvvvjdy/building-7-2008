@@ -5,12 +5,13 @@
 <meta name="theme-color" content="#245edb"><meta name="description" content="打开一块旧硬盘，回到2008年的桌面。关于记忆、流言与真相的互动叙事游戏。">
 <link rel="preload" as="image" href="./assets/compound-evening.webp" fetchpriority="high">
 <title>消失在2008的7号楼</title>
-<link rel="stylesheet" href="./style.css?v=0.6.0"><link rel="stylesheet" href="./story.css?v=0.6.0">
-<link rel="stylesheet" href="./desktop-v5.css?v=0.6.0">
-<link rel="stylesheet" href="./space-v5.css?v=0.6.0">
-<link rel="stylesheet" href="./photo-v5.css?v=0.6.0">
-<link rel="stylesheet" href="./archive-v6.css?v=0.6.0">
-<link rel="stylesheet" href="./prologue.css?v=0.6.0">
+<link rel="stylesheet" href="./style.css?v=0.7.0"><link rel="stylesheet" href="./story.css?v=0.7.0">
+<link rel="stylesheet" href="./desktop-v5.css?v=0.7.0">
+<link rel="stylesheet" href="./space-v5.css?v=0.7.0">
+<link rel="stylesheet" href="./photo-v5.css?v=0.7.0">
+<link rel="stylesheet" href="./archive-v6.css?v=0.7.0">
+<link rel="stylesheet" href="./ending-v7.css?v=0.7.0">
+<link rel="stylesheet" href="./prologue.css?v=0.7.0">
 </head>
 <body>
 <div class="desktop" id="desktop">
@@ -31,7 +32,25 @@
  </div>
  <button type="button" class="skip-film">跳过片头</button>
 </dialog>
+<dialog id="drive-entry" aria-label="刘可阳的电脑 · 2026 年 12 月 31 日">
+ <div class="drive-stage">
+  <div class="drive-canvas" tabindex="-1">
+   <header class="drive-mobile-header"><small>2026 年 12 月 31 日 · 刘可阳的电脑</small><h1>LINXIA_2008</h1><p>此电脑　›　本地磁盘 (D:)　›　LINXIA_2008</p></header>
+   <div class="drive-files" aria-label="旧移动硬盘中的文件">
+    <button type="button" data-file="index.html" aria-label="打开 index.html"><span>index.html</span><small>HTML 文件</small></button>
+    <button type="button" data-file="blog" aria-label="打开 blog"><span>blog</span><small>文件夹</small></button>
+    <button type="button" data-file="forum" aria-label="打开 forum"><span>forum</span><small>文件夹</small></button>
+    <button type="button" data-file="chat.db" aria-label="打开 chat.db"><span>chat.db</span><small>数据库</small></button>
+    <button type="button" data-file="imgs" aria-label="打开 imgs"><span>imgs</span><small>文件夹</small></button>
+    <button type="button" data-file="config.json" aria-label="打开 config.json"><span>config.json</span><small>JSON 文件</small></button>
+   </div>
+   <p class="drive-cue" role="status"></p>
+  </div>
+  <section class="drive-detail" aria-label="文件属性" hidden><strong></strong><p></p><button type="button">返回文件夹</button></section>
+ </div>
+ <div class="drive-boot" role="status" hidden></div>
+</dialog>
 <div id="dialog-root"></div><div id="toast" role="status" aria-live="polite"></div>
-<script src="./interface.js?v=0.6.0" defer></script><script src="./game.js?v=0.6.0" defer></script><script src="./story.js?v=0.6.0" defer></script>
-<script src="./prologue.js?v=0.6.0" defer></script>
+<script src="./interface.js?v=0.7.0" defer></script><script src="./game.js?v=0.7.0" defer></script><script src="./story.js?v=0.7.0" defer></script>
+<script src="./prologue.js?v=0.7.0" defer></script>
 </body></html>
